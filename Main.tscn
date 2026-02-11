@@ -1,28 +1,38 @@
-[gd_scene load_steps=8 format=3 uid="uid://byt88txdkcalt"]
+[gd_scene load_steps=7 format=4 uid="uid://byt88txdkcalt"]
 
-[ext_resource type="Texture2D" uid="uid://drepdo46v0o1f" path="res://Assets/2D/Solidnoise.png" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://dkko5k0n6h2s" path="res://Scenes/Map/Environment 1.tscn" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://8vb60fkcrrqc" path="res://Scenes/camera.tscn" id="2_r0du0"]
 [ext_resource type="PackedScene" uid="uid://uujvywsur5qe" path="res://Scenes/UI/hud.tscn" id="4_cm0pq"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_rxg2q"]
-size = Vector2(20, 20)
+[sub_resource type="NavigationMesh" id="NavigationMesh_r0du0"]
+vertices = PackedVector3Array(-9.5, 1, -9.5, -9.5, 1, 9.5, 9.5, 1, 9.5, 9.5, 1, -9.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cm0pq"]
-albedo_texture = ExtResource("1_r0du0")
+[sub_resource type="ArrayMesh" id="ArrayMesh_r0du0"]
+_surfaces = [{
+"aabb": AABB(-10, -0.5, -10, 20, 1, 20),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AAAgwQAAAL8AACBBAAAgwQAAAL8AACDBAAAgwQAAAD8AACDBAAAgQQAAAL8AACDBAAAgwQAAAL8AACDBAAAgwQAAAL8AACBBAAAgwQAAAD8AACDBAAAgwQAAAL8AACDBAAAgQQAAAL8AACDBAAAgwQAAAD8AACDBAAAgwQAAAD8AACBBAAAgwQAAAL8AACBBAAAgwQAAAL8AACBBAAAgwQAAAD8AACBBAAAgQQAAAD8AACBBAAAgQQAAAD8AACBBAAAgwQAAAD8AACBBAAAgwQAAAD8AACDBAAAgwQAAAL8AACBBAAAgQQAAAL8AACBBAAAgQQAAAL8AACDBAAAgQQAAAD8AACBBAAAgQQAAAL8AACBBAAAgwQAAAL8AACBBAAAgQQAAAL8AACDBAAAgQQAAAL8AACBBAAAgQQAAAD8AACBBAAAgQQAAAL8AACDBAAAgQQAAAD8AACDBAAAgwQAAAD8AACDBAAAgwQAAAD8AACDBAAAgQQAAAD8AACDBAAAgQQAAAD8AACBBAAAgQQAAAD8AACBBAAAgQQAAAD8AACDBAAAgQQAAAL8AACDBAAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cm0pq"]
-data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+data = PackedVector3Array(-10, -0.5, 10, -10, -0.5, -10, -10, 0.5, -10, 10, -0.5, -10, -10, -0.5, -10, -10, -0.5, 10, -10, 0.5, -10, -10, -0.5, -10, 10, -0.5, -10, -10, 0.5, -10, -10, 0.5, 10, -10, -0.5, 10, -10, -0.5, 10, -10, 0.5, 10, 10, 0.5, 10, 10, 0.5, 10, -10, 0.5, 10, -10, 0.5, -10, -10, -0.5, 10, 10, -0.5, 10, 10, -0.5, -10, 10, 0.5, 10, 10, -0.5, 10, -10, -0.5, 10, 10, -0.5, -10, 10, -0.5, 10, 10, 0.5, 10, 10, -0.5, -10, 10, 0.5, -10, -10, 0.5, -10, -10, 0.5, -10, 10, 0.5, -10, 10, 0.5, 10, 10, 0.5, 10, 10, 0.5, -10, 10, -0.5, -10)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_rxg2q")
-surface_material_override/0 = SubResource("StandardMaterial3D_cm0pq")
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_r0du0")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+mesh = SubResource("ArrayMesh_r0du0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CSGBakedMeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CSGBakedMeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_cm0pq")
 
 [node name="Environment1" parent="." instance=ExtResource("1_uu6xs")]

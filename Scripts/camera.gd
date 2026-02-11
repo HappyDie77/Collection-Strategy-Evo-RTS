@@ -2,25 +2,22 @@ extends Node3D
 
 @onready var spring_arm_3d: SpringArm3D = $SpringArm3D
 @onready var main_camera: Camera3D = $"SpringArm3D/Main Camera"
-@onready var ray_cast_3d: RayCast3D = $"SpringArm3D/Main Camera/RayCast3D"
-@onready var camera_light: OmniLight3D = $"SpringArm3D/Camera light"
-@onready var camera_light_2: SpotLight3D = $"SpringArm3D/Camera light2"
 
 @export var zoom_speed: float = 1.0
 @export var min_zoom: float = 2.5
-@export var max_zoom: float = 80.0
-@export var zoom_smoothness: float = 6.0  # Higher = smoother
+@export var max_zoom: float = 20.0
+@export var zoom_smoothness: float = 6.0
 @export var move_speed: float = 5.0
 @export var sprint_multiplier: float = 2.0
 
 var target_zoom: float
-var last_selected: Node3D = null
+var last_highlighted: Node = null
 var selected_unit_scene: PackedScene = null
 var placement_mode: bool = false
+var selected_unit: Node = null
 
 func _ready() -> void:
 	target_zoom = 6
-	# Connect all unit buttons
 	for button in get_tree().get_nodes_in_group("unit_buttons"):
 		button.unit_selected.connect(_on_unit_selected)
 
@@ -46,24 +43,11 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("shift"):
 			speed *= sprint_multiplier
 		var global_move = (transform.basis * move_dir).normalized()
-		global_move.y = 0.0  # flatten movement
+		global_move.y = 0.0
 		global_position += global_move * speed * delta
 
-
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		# Mouse wheel up (zoom in)
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-			target_zoom = max(min_zoom, target_zoom - zoom_speed)
-		# Mouse wheel down (zoom out)
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-			target_zoom = min(max_zoom, target_zoom + zoom_speed)
-
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			movement()
-
-func movement():
-	if not main_camera:
+	if not (event is InputEventMouseButton and event.pressed):
 		return
 
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -73,39 +57,65 @@ func movement():
 	var query = PhysicsRayQueryParameters3D.create(from, to)
 	query.collide_with_areas = true
 	query.collide_with_bodies = true
-	query.collision_mask = 1  # Make sure your tiles/objects use this layer
+	query.collision_mask = 1
 	var result = space_state.intersect_ray(query)
 
-	if result:
-		var collider = result.collider
-		var target = collider
-		while target and not target.has_method("highlight"):
-			target = target.get_parent()
+	# Zoom
+	if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+		target_zoom = max(min_zoom, target_zoom - zoom_speed)
+	elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+		target_zoom = min(max_zoom, target_zoom + zoom_speed)
 
-		if placement_mode and selected_unit_scene:
+	# Left click → select/place
+	elif event.button_index == MOUSE_BUTTON_LEFT:
+		if placement_mode and result:
 			var instance = selected_unit_scene.instantiate()
 			get_tree().current_scene.add_child(instance)
-			var spawn_pos = result.position
+			var spawn_pos = result["position"]  # <-- Dictionary access
 			spawn_pos.y += 0.8
 			instance.global_position = spawn_pos
-			# Optional: Exit placement mode after placing one
 			placement_mode = false
 			selected_unit_scene = null
+			return
 
-		# Change highlight if we hit a new object
-		if target:
-			# Turn off old selector
-			if last_selected and last_selected.has_method("highlight"):
-				last_selected.highlight(false)
-
-			# Turn on new one
-			if target and target.has_method("highlight"):
-				target.highlight(true)
-
-			last_selected = target
-
+		if result:
+			var collider = result["collider"]  # <-- Dictionary access
+			var unit_node = _get_unit_from_collider(collider)
+			if unit_node:
+				_select_unit(unit_node)
+			else:
+				_deselect_unit()
 		else:
-			# If no hit, remove highlight from the previous one
-			if last_selected and last_selected.has_method("highlight"):
-				last_selected.highlight(false)
-			last_selected = null
+			_deselect_unit()
+
+	# Right click → move selected unit
+	elif event.button_index == MOUSE_BUTTON_RIGHT and result and selected_unit:
+		var target_pos = result["position"]  # <-- Dictionary access
+		if selected_unit.has_method("move_to"):
+			selected_unit.move_to(target_pos)
+
+
+# Select and highlight a unit
+func _select_unit(unit: Node) -> void:
+	if last_highlighted and last_highlighted.has_method("highlight"):
+		last_highlighted.highlight(false)
+	if unit.has_method("highlight"):
+		unit.highlight(true)
+	last_highlighted = unit
+	selected_unit = unit
+
+# Deselect current unit
+func _deselect_unit() -> void:
+	if selected_unit and selected_unit.has_method("highlight"):
+		selected_unit.highlight(false)
+	selected_unit = null
+	last_highlighted = null
+
+# Traverse up to find root unit with move_to() and highlight()
+func _get_unit_from_collider(collider: Node) -> Node:
+	var node = collider
+	while node:
+		if node.has_method("move_to") and node.has_method("highlight"):
+			return node
+		node = node.get_parent()
+	return null

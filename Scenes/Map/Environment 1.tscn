@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkko5k0n6h2s"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pfjfu"]
+sky_top_color = Color(0.192157, 0.282353, 0.509804, 1)
+sky_horizon_color = Color(0.505882, 0.615686, 0.709804, 1)
+sky_curve = 0.049481824
+ground_bottom_color = Color(0.66157186, 0.50795454, 0.4137794, 1)
+ground_horizon_color = Color(0.505882, 0.615686, 0.709804, 1)
+ground_curve = 0.43726656
+
+[sub_resource type="Sky" id="Sky_srg7c"]
+sky_material = SubResource("ProceduralSkyMaterial_pfjfu")
+
+[sub_resource type="Environment" id="Environment_putlg"]
+background_mode = 2
+background_energy_multiplier = 0.7
+sky = SubResource("Sky_srg7c")
+ambient_light_source = 3
+ambient_light_color = Color(0.9942065, 0.95673984, 0.887632, 1)
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 3
+tonemap_white = 1.2
+ssao_enabled = true
+ssao_radius = 5.0
+ssao_intensity = 4.0
+ssao_power = 0.8
+ssao_detail = 1.32
+ssao_horizon = 0.09
+fog_mode = 1
+fog_light_color = Color(0.80012476, 0.68092066, 0.4913569, 1)
+fog_density = 1.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
+volumetric_fog_albedo = Color(0.540595, 0.45478165, 0.17906669, 1)
+volumetric_fog_emission = Color(1, 0.96862745, 0.53333336, 1)
+volumetric_fog_emission_energy = 0.2
+volumetric_fog_gi_inject = 2.0
+volumetric_fog_anisotropy = 0.3
+volumetric_fog_length = 200.0
+volumetric_fog_detail_spread = 5.598199
+volumetric_fog_ambient_inject = 3.0
+volumetric_fog_sky_affect = 0.075
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.05
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xh04s"]
+
+[node name="Environment1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_putlg")
+camera_attributes = SubResource("CameraAttributesPractical_xh04s")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.820132, -0.178814, -0.543516, 0.572175, 0.256305, 0.779053, -1.59024e-08, -0.949912, 0.312517, 0, 172.949, -0.0261426)
+light_color = Color(0.9553645, 0.8740157, 0.63717264, 1)
+light_energy = 0.6
+light_volumetric_fog_energy = 14.0
+light_specular = 2.0
+shadow_enabled = true
+shadow_normal_bias = 3.0
+shadow_opacity = 0.5
+shadow_blur = 3.0

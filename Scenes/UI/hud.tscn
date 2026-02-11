@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://uujvywsur5qe"]
+
+[ext_resource type="Script" uid="uid://cqhvaoo5wgmid" path="res://Scripts/place_unit.gd" id="1_sprlj"]
+[ext_resource type="PackedScene" uid="uid://be2nna8waa72" path="res://Scenes/Units/test_unit.tscn" id="2_ny26j"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlaceUnit" type="Button" parent="CanvasLayer" groups=["unit_buttons"]]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.5
+offset_top = -55.0
+offset_right = 27.5
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Unit 1"
+script = ExtResource("1_sprlj")
+unit_scene = ExtResource("2_ny26j")
+
+[connection signal="pressed" from="CanvasLayer/PlaceUnit" to="CanvasLayer/PlaceUnit" method="_on_pressed"]

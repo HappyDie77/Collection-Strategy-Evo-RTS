@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://div8gufxhdkpf"]
+
+[ext_resource type="Script" uid="uid://csv6rcs13km5o" path="res://Scripts/Passives/ThornsPassive.gd" id="1_jr223"]
+
+[node name="ThornsPassive" type="Node"]
+script = ExtResource("1_jr223")

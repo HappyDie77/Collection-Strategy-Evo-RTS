@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4wgkh7itr2dj"]
+
+[ext_resource type="Script" uid="uid://bt2d2lojafff8" path="res://Scripts/Passives/VampirePassive.gd" id="1_w4ccs"]
+
+[node name="VampirePassive" type="Node"]
+script = ExtResource("1_w4ccs")

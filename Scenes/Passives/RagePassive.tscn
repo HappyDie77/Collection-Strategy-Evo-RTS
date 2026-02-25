@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckeps5c7i7qdm"]
+
+[ext_resource type="Script" uid="uid://bhjy1qldelw7f" path="res://Scripts/Passives/RagePassive.gd" id="1_jr56q"]
+
+[node name="RagePassive" type="Node"]
+script = ExtResource("1_jr56q")

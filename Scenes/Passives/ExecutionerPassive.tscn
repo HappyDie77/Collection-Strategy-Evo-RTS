@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bri5nbkx4nk37"]
+
+[ext_resource type="Script" uid="uid://dp1xouh7q18pp" path="res://Scripts/Passives/ExecutionerPassive.gd" id="1_yhvs2"]
+
+[node name="ExecutionerPassive" type="Node"]
+script = ExtResource("1_yhvs2")

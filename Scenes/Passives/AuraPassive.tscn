@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bph2jcut7rnl"]
+
+[ext_resource type="Script" uid="uid://btqddmgrbxhcw" path="res://Scripts/Passives/AuraPassive.gd" id="1_ai57p"]
+
+[node name="AuraPassive" type="Node"]
+script = ExtResource("1_ai57p")

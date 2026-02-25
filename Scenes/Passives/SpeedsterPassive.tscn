@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://eb4pklxl11lu"]
+
+[ext_resource type="Script" uid="uid://eaw1w8cx4rdf" path="res://Scripts/Passives/SpeedsterPassive.gd" id="1_2a5lk"]
+
+[node name="SpeedsterPassive" type="Node"]
+script = ExtResource("1_2a5lk")

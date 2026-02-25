@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=2 format=3 uid="uid://43y0qo15sexj"]
+
+[ext_resource type="Script" uid="uid://b4mxac3ln3hdi" path="res://Scripts/UnitData.gd" id="1_8p3di"]
+
+[resource]
+script = ExtResource("1_8p3di")
+unit_class = "Ranged"
+metadata/_custom_type_script = "uid://b4mxac3ln3hdi"

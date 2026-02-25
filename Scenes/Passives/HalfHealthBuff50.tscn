@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crxf070g48fcb"]
+
+[ext_resource type="Script" uid="uid://cl140ipn4f2hi" path="res://Scripts/Passives/HalfHealthBuff50.gd" id="1_liltr"]
+
+[node name="HalfHealthBuff50" type="Node"]
+script = ExtResource("1_liltr")

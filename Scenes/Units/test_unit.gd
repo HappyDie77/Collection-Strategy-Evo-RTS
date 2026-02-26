@@ -16,6 +16,7 @@ class_name Unit
 @onready var ranged_shape: CollisionShape3D = $RangedRange/RangedShape
 
 # Stats
+var max_health: int
 var health: int
 var speed: float
 var damage: int
@@ -87,7 +88,8 @@ func _ready():
 
 	# Load stats from UnitData
 	if data:
-		health = data.max_health
+		max_health = data.max_health
+		health = max_health
 		speed = data.move_speed
 		damage = data.damage
 		damage_bonus = data.damage_bonus

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdr0avdgahqtd"]
+
+[ext_resource type="Script" uid="uid://ci6g606fh845n" path="res://Scripts/Passives/AbnormalityPassive.gd" id="1_cg84v"]
+
+[node name="AbnormalityPassive" type="Node"]
+script = ExtResource("1_cg84v")

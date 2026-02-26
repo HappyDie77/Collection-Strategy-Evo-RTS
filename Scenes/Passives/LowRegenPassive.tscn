@@ -1,6 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://de2sd8ey28sa1"]
 
-[ext_resource type="Script" uid="uid://febs2sbq3rw7" path="res://Scripts/Passives/LowRegenPassive.gd" id="1_atufw"]
+[ext_resource type="Script" uid="uid://gq3nfpcvwrns" path="res://Scripts/Passives/LowRegenPassive.gd" id="1_atufw"]
 
 [node name="LowRegenPassive" type="Node"]
 script = ExtResource("1_atufw")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

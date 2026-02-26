@@ -34,8 +34,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8434386, 0)
 mesh = SubResource("ArrayMesh_r0du0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CSGBakedMeshInstance3D"]
-collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CSGBakedMeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_cm0pq")
@@ -43,7 +41,13 @@ shape = SubResource("ConcavePolygonShape3D_cm0pq")
 [node name="Environment1" parent="." instance=ExtResource("1_uu6xs")]
 
 [node name="Camera" parent="." instance=ExtResource("2_r0du0")]
-stats_panel = NodePath("../Hud")
+stats_panel = null
+zoom_speed = null
+min_zoom = null
+max_zoom = null
+zoom_smoothness = null
+move_speed = null
+sprint_multiplier = null
 
 [node name="Hud" parent="." instance=ExtResource("4_cm0pq")]
 offset_left = 708.99

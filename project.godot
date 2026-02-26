@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Collection Strategy Evo"
+run/main_scene="uid://byt88txdkcalt"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/aspect="expand"
 
 [global_group]
 

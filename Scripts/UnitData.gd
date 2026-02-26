@@ -5,6 +5,7 @@ extends Resource
 @export var max_health: int = 100
 @export var move_speed: float = 5.0
 @export var damage: int = 10
+var damage_bonus: int = 0
 
 #Attack
 @export var attack_range: float = 1.8

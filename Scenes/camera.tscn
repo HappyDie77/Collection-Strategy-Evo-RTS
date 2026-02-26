@@ -24,6 +24,8 @@ fov = 70.0
 
 [node name="RayCast3D" type="RayCast3D" parent="SpringArm3D/Main Camera"]
 target_position = Vector3(0, 0, -1000)
+collision_mask = 7
+debug_shape_thickness = 1
 
 [node name="Camera light" type="OmniLight3D" parent="SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)

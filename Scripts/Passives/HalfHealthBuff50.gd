@@ -1,4 +1,3 @@
-# HalfHealthBuff50.gd
 extends Passive
 
 var buff_active: bool = false

@@ -1,8 +1,20 @@
 extends Passive
 
-@export var regen_per_second: float = 2.0
+var regen_per_tick: int
 
-func _process(delta: float) -> void:
+@onready var timer: Timer = $Timer
+
+func _ready():
+	if unit:
+		regen_per_tick = unit.data.max_health / 40 #Heals 2.5% each sec
+
+	timer.timeout.connect(_on_tick)
+
+func _on_tick():
 	if unit and unit.health < unit.data.max_health:
-		unit.health = min(unit.health + regen_per_second * delta, unit.data.max_health)
-		print(unit.health)
+		unit.health = min(
+			unit.health + regen_per_tick,
+			unit.data.max_health
+		)
+
+		print("Regen tick:", unit.health)

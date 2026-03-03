@@ -60,7 +60,8 @@ func _physics_process(delta: float) -> void:
 		global_move.y = 0.0
 		global_position += global_move * speed * delta
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
+	
 	if not (event is InputEventMouseButton and event.pressed):
 		return
 	

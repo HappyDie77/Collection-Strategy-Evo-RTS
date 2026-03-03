@@ -12,6 +12,8 @@ extends Control
 @onready var dexterity: Label = $"CanvasLayer/Stats/Main Attributes/Dexterity"
 @onready var health_bar: ProgressBar = $CanvasLayer/Stats/HealthBar
 
+@onready var stats: Panel = $CanvasLayer/Stats
+@onready var skills: Panel = $CanvasLayer/Skills
 
 var current_unit: Node = null
 var update_timer: float = 0.0
@@ -19,6 +21,7 @@ var update_interval: float = 0.1  # Update stats 10 times per second
 
 func _ready():
 	clear_stats()
+	stats.visible = false
 
 func _process(delta: float) -> void:
 	if current_unit and is_instance_valid(current_unit):
@@ -37,12 +40,15 @@ func set_unit(unit: Node) -> void:
 	current_unit = unit
 	if unit and is_instance_valid(unit):
 		update_stats()
+		stats.visible = true
 	else:
 		clear_stats()
+		stats.visible = false
 
 # Update all stats from current unit
 func update_stats() -> void:
 	if not current_unit or not is_instance_valid(current_unit):
+		stats.visible = false
 		clear_stats()
 		return
 	

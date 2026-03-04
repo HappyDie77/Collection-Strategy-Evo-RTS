@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://br5rgyoya7gwj"]
+
+[ext_resource type="Script" uid="uid://etnv7uy3rc65" path="res://Scripts/game_select.gd" id="1_qxi37"]
+
+[node name="GameSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qxi37")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -61.5
+offset_right = 108.0
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Selection" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Gamemode Selection"
+horizontal_alignment = 1
+
+[node name="Gamemode" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "Defend Constructs"
+popup/item_0/id = 0
+popup/item_1/text = "Attack Constructs"
+popup/item_1/id = 1
+popup/item_2/text = "Intercept Convoy"
+popup/item_2/id = 2
+
+[node name="Selection2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Map Selection"
+horizontal_alignment = 1
+
+[node name="Map" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+item_count = 1
+popup/item_0/text = "TestMap 1"
+popup/item_0/id = 0
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = 96.5
+offset_right = 44.0
+offset_bottom = 127.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[connection signal="item_selected" from="VBoxContainer/Gamemode" to="." method="_on_gamemode_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/Map" to="." method="_on_map_item_selected"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

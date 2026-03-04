@@ -30,10 +30,9 @@ func _process(delta: float) -> void:
 			update_timer = 0.0
 			update_stats()
 	else:
-		# Unit died or became invalid
-		if current_unit:
-			clear_stats()
-			current_unit = null
+		stats.visible = false
+		clear_stats()
+		current_unit = null
 
 # Called by Camera when a unit is selected
 func set_unit(unit: Node) -> void:

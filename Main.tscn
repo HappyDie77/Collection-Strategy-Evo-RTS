@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://uujvywsur5qe" path="res://Scenes/UI/hud.tscn" id="4_cm0pq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_r0du0"]
-vertices = PackedVector3Array(-9.5, 1, -9.5, -9.5, 1, 9.5, 9.5, 1, 9.5, 9.5, 1, -9.5)
+vertices = PackedVector3Array(-9.5, 1.3199079, -9.5, -9.5, 1.3199079, 9.5, 9.5, 1.3199079, 9.5, 9.5, 1.3199079, -9.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_r0du0"]
@@ -26,11 +26,11 @@ data = PackedVector3Array(-10, -0.5, 10, -10, -0.5, -10, -10, 0.5, -10, 10, -0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33544016, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29798698, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.363894, 0)
 navigation_mesh = SubResource("NavigationMesh_r0du0")
 
 [node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8434386, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3199079, 0)
 mesh = SubResource("ArrayMesh_r0du0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CSGBakedMeshInstance3D"]
@@ -46,7 +46,3 @@ shape = SubResource("ConcavePolygonShape3D_cm0pq")
 stats_panel = NodePath("../Hud")
 
 [node name="Hud" parent="." instance=ExtResource("4_cm0pq")]
-offset_left = 708.99
-offset_top = 360.12997
-offset_right = 708.99
-offset_bottom = 360.13

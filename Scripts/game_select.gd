@@ -17,8 +17,8 @@ func _ready() -> void:
 	if map_id == 2:
 		pass
 
-	if gamemode_id == 0:
-		
+	#if gamemode_id == 0:
+		#
 
 func load_game():
 	var scene_to_load
@@ -32,13 +32,13 @@ func load_game():
 		2:
 			pass
 	
-	match gamemode_id:
-		0:
-			gamemode_to_append = pass
-		1:
-			gamemode_to_append =
-		3:
-			gamemode_to_append
+	#match gamemode_id:
+		#0:
+			#gamemode_to_append = pass
+		#1:
+			#gamemode_to_append =
+		#3:
+			#gamemode_to_append
 
 	if scene_to_load:
 		get_tree().change_scene_to_packed(scene_to_load)

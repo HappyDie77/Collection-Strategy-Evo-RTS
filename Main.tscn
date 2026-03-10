@@ -28,6 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33544016, 0)
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.363894, 0)
 navigation_mesh = SubResource("NavigationMesh_r0du0")
+navigation_layers = 3
 
 [node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3199079, 0)
@@ -40,9 +41,9 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CSGBakedMeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_cm0pq")
 
-[node name="Environment1" parent="." instance=ExtResource("1_uu6xs")]
-
 [node name="Camera" parent="." instance=ExtResource("2_r0du0")]
 stats_panel = NodePath("../Hud")
+
+[node name="Environment1" parent="." instance=ExtResource("1_uu6xs")]
 
 [node name="Hud" parent="." instance=ExtResource("4_cm0pq")]

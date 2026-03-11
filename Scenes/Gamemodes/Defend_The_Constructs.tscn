@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1si6g6boo7"]
+
+[ext_resource type="Script" uid="uid://b0emlotxio3hp" path="res://Scripts/Gamemodes/defend_the_constructs.gd" id="1_7mue8"]
+
+[node name="DefendTheConstructs" type="Node3D"]
+script = ExtResource("1_7mue8")

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UnitData" load_steps=7 format=3 uid="uid://b1kq7wjh5p5qo"]
 
-[ext_resource type="Script" uid="uid://b4mxac3ln3hdi" path="res://Scripts/UnitData.gd" id="1_nt56w"]
+[ext_resource type="Script" uid="uid://b4mxac3ln3hdi" path="res://Scripts/System/UnitData.gd" id="1_nt56w"]
 [ext_resource type="PackedScene" uid="uid://de2sd8ey28sa1" path="res://Scenes/Passives/LowRegenPassive.tscn" id="2_a1qn4"]
 [ext_resource type="PackedScene" uid="uid://crxf070g48fcb" path="res://Scenes/Passives/HalfHealthBuff50.tscn" id="2_d6sp4"]
 [ext_resource type="PackedScene" uid="uid://div8gufxhdkpf" path="res://Scenes/Passives/ThornsPassive.tscn" id="3_a1qn4"]

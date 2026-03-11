@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://br5rgyoya7gwj"]
 
-[ext_resource type="Script" uid="uid://etnv7uy3rc65" path="res://Scripts/game_select.gd" id="1_qxi37"]
+[ext_resource type="Script" uid="uid://etnv7uy3rc65" path="res://Scripts/System/game_select.gd" id="1_qxi37"]
 
 [node name="GameSelect" type="Control"]
 layout_mode = 3

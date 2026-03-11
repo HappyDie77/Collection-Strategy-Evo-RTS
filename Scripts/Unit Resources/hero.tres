@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UnitData" load_steps=3 format=3 uid="uid://43y0qo15sexj"]
 
-[ext_resource type="Script" uid="uid://b4mxac3ln3hdi" path="res://Scripts/UnitData.gd" id="1_8p3di"]
+[ext_resource type="Script" uid="uid://b4mxac3ln3hdi" path="res://Scripts/System/UnitData.gd" id="1_8p3di"]
 [ext_resource type="PackedScene" uid="uid://ckeps5c7i7qdm" path="res://Scenes/Passives/RagePassive.tscn" id="1_xb5gd"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cv05isiumhl54"]
 
-[ext_resource type="Script" uid="uid://bqn82idnphuqj" path="res://Scenes/Units/test_unit.gd" id="1_gdk40"]
+[ext_resource type="Script" uid="uid://bqn82idnphuqj" path="res://Scripts/Units/test_unit.gd" id="1_gdk40"]
 [ext_resource type="Resource" uid="uid://43y0qo15sexj" path="res://Scripts/Unit Resources/hero.tres" id="2_gdk40"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_s6vb6"]

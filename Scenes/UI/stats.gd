@@ -64,7 +64,7 @@ func update_stats() -> void:
 	var max_hp = current_unit.data.max_health
 	health.text = "Hp: %d/%d" % [current_unit.health, current_unit.data.max_health]
 	damage.text = "Dmg: %d" % (current_unit.damage + current_unit.damage_bonus)
-	defence.text = "Defe: %d" % 0  # Not implemented yet
+	defence.text = "Def: %d" % 0  # Not implemented yet
 	speed.text = "Spa: %.1f" % current_unit.attack_cooldown
 
 	# Update health bar

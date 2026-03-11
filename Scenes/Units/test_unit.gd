@@ -124,7 +124,8 @@ func _ready():
 
 func _setup_navigation():
 	await get_tree().physics_frame
-	# Navigation is now ready
+	if nav_agent:
+		nav_agent.set_velocity(Vector3.ZERO)
 
 func is_enemy(body: Node) -> bool:
 	if body == self:
@@ -181,8 +182,10 @@ func _physics_process(delta):
 		update_damage_bonus()
 
 	# Reset manual override if finished moving
-	if manual_override and nav_agent and nav_agent.is_navigation_finished():
-		manual_override = false
+	if manual_override and nav_agent:
+		if nav_agent.is_navigation_finished():
+			manual_override = false
+			current_target = null
 
 	# Manual movement takes priority
 	if manual_override:
@@ -190,7 +193,9 @@ func _physics_process(delta):
 			var next_pos = nav_agent.get_next_path_position()
 			var direction = (next_pos - global_position).normalized()
 			velocity = direction * speed
-			move_and_slide()
+		else:
+			velocity = Vector3.ZERO
+		move_and_slide()
 		return
 
 	# OPTIMIZATION: Only recalculate navigation if we're not already moving

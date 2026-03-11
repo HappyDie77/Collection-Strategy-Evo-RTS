@@ -31,6 +31,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_546vh")
 shape = SubResource("CapsuleShape3D_v3nbk")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+radius = 0.4
 
 [node name="AttackRange" type="Area3D" parent="."]
 unique_name_in_owner = true

@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 		global_position += global_move * speed * delta
 
 func _unhandled_input(event: InputEvent) -> void:
-	
+
 	if not (event is InputEventMouseButton and event.pressed):
 		return
 	
@@ -111,7 +111,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		if selected_unit.team == "Team2":  # Assuming Team2 is hostile
 			return
 		var target_pos = result["position"]
-		print("test")
+		print("Selected:", selected_unit)
+		print("Ray hit:", result)
 		if selected_unit.has_method("move_to"):
 			selected_unit.move_to(target_pos)
 

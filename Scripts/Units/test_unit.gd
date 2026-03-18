@@ -17,10 +17,22 @@ class_name Unit
 
 # Stats
 var max_health: int
+
+# Base stats (from UnitData)
+var base_damage: int
+var base_speed: float
+var base_armor: int
+var base_physical_defence: int
+var base_magical_defence: int
+
+# Runtime
 var health: int
-var speed: float
-var damage: int
-var damage_bonus: int
+
+# Bonuses (from passives)
+var damage_bonus: int = 0
+var speed_bonus: float = 0
+var armor_bonus: int = 0
+
 var attack_cooldown: float
 var attack_timer: float = 0.0
 var attack_count: int
@@ -90,9 +102,11 @@ func _ready():
 	if data:
 		max_health = data.max_health
 		health = max_health
-		speed = data.move_speed
-		damage = data.damage
-		damage_bonus = data.damage_bonus
+		base_damage = data.damage
+		base_speed = data.move_speed
+		base_armor = data.armor
+		base_physical_defence = data.physical_defence
+		base_magical_defence = data.magical_defence
 		attack_range = data.attack_range
 		defend_range = data.defend_range
 		ranged_range = data.ranged_range
@@ -121,6 +135,22 @@ func _ready():
 		nav_agent.target_desired_distance = 0.5
 		nav_agent.path_max_distance = 3.0
 		call_deferred("_setup_navigation")
+
+func get_damage() -> int:
+	return base_damage + damage_bonus
+
+func get_speed() -> float:
+	return base_speed + speed_bonus
+
+func get_armor() -> int:
+	return base_armor + armor_bonus
+
+func get_physical_defence() -> int:
+	return base_physical_defence
+
+func get_magical_defence() -> int:
+	return base_magical_defence
+
 
 func _setup_navigation():
 	await get_tree().physics_frame
@@ -157,11 +187,14 @@ func _on_defend_range_body_entered(body: Node3D):
 func _on_defend_range_body_exited(body: Node3D):
 	enemies_in_defend_range.erase(body)
 
-func update_damage_bonus():
+func update_bonuses():
 	damage_bonus = 0
+	speed_bonus = 0
+	armor_bonus = 0
+
 	for passive in passive_container.get_children():
-		if passive.has_method("get_bonus"):
-			damage_bonus += passive.get_bonus()
+		if passive.has_method("apply_bonus"):
+			passive.apply_bonus(self)
 
 func _physics_process(delta):
 	attack_timer -= delta
@@ -179,7 +212,7 @@ func _physics_process(delta):
 	bonus_timer += delta
 	if bonus_timer >= bonus_interval:
 		bonus_timer = 0.0
-		update_damage_bonus()
+		update_bonuses()
 
 	# Reset manual override if finished moving
 	if manual_override and nav_agent:
@@ -192,7 +225,7 @@ func _physics_process(delta):
 		if nav_agent and not nav_agent.is_navigation_finished():
 			var next_pos = nav_agent.get_next_path_position()
 			var direction = (next_pos - global_position).normalized()
-			velocity = direction * speed
+			velocity = direction * (base_speed + speed_bonus)
 		else:
 			velocity = Vector3.ZERO
 		move_and_slide()
@@ -212,7 +245,7 @@ func _physics_process(delta):
 	if nav_agent and not nav_agent.is_navigation_finished():
 		var next_pos = nav_agent.get_next_path_position()
 		var direction = (next_pos - global_position).normalized()
-		velocity = direction * speed
+		velocity = direction * (base_speed + speed_bonus)
 		move_and_slide()
 	else:
 		velocity = Vector3.ZERO
@@ -271,7 +304,8 @@ func attack(target: Node):
 		return
 
 	attack_timer = attack_cooldown
-	target.take_damage(damage + damage_bonus, self)
+	var final_damage = get_damage()
+	target.take_damage(final_damage, self)
 	emit_signal("attacked", target)
 
 func handle_attack_mode():
@@ -344,10 +378,19 @@ func take_damage(amount: int, attacker: Node = null, is_reflect: bool = false):
 		return
 	if health <= 0:
 		return
-	health -= amount
+
+	var armor = get_armor()
+
+	# Exponential damage reduction (always takes damage)
+	var damage_multiplier = 100.0 / (100.0 + armor)
+	var reduced = int(amount * damage_multiplier)
+
+	reduced = max(reduced, 1)
+
+	health -= reduced
 
 	if not is_reflect:
-		emit_signal("damaged", amount, attacker)
+		emit_signal("damaged", reduced, attacker)
 
 	if health <= 0:
 		die()

@@ -1,0 +1,335 @@
+[gd_scene load_steps=24 format=4 uid="uid://cqybgwfgn16b7"]
+
+[ext_resource type="Material" uid="uid://3cb3adubyo4m" path="res://Scripts/Shaders/shield_ani.tres" id="1_fbgih"]
+[ext_resource type="Animation" uid="uid://cx7tseip4q611" path="res://Assets/Animations/shield_001.res" id="1_t6swg"]
+[ext_resource type="Animation" uid="uid://1ow5evdnv2l" path="res://Assets/Animations/shield_002.res" id="2_fbgih"]
+[ext_resource type="Animation" uid="uid://dbfpka7tywhvd" path="res://Assets/Animations/shield_003.res" id="3_xmjkm"]
+[ext_resource type="Animation" uid="uid://c86fo5bd0hyi5" path="res://Assets/Animations/shield_004.res" id="4_m7t4t"]
+[ext_resource type="Animation" uid="uid://b3nimmj4kilg4" path="res://Assets/Animations/shield_005.res" id="5_ka5b5"]
+[ext_resource type="Animation" uid="uid://dwcl6t1h4ojo4" path="res://Assets/Animations/shield_006.res" id="6_dfga3"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0csuf"]
+_surfaces = [{
+"aabb": AABB(-0.27638802, -1, -0.5257253, 1.2274458, 1.5257362, 1.5257252),
+"format": 34896613377,
+"index_count": 45,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAwAFAAIAAAAGAAQABQAHAAIACAAGAAAABQAJAAcACAAKAAYACQALAAcACAAMAAoACwANAAcADQAMAAgACwAOAA0ADQAOAAwA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("DeuTTzVYAABZkg4ZXCQAAFmSDhkOjAAApDkAADVYAACP0L9cAAAAAMMXDhkarAAA///Jp1wkAAB3cJNP898AAP//yacOjAAAAAC/XO/mAAAv9NLyNVgAAKQ5yaf//wAALMn//xqsAAA7tMmn898AAElz0vLv5gAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0mlre"]
+resource_name = "Shield_Ani_Icosphere"
+_surfaces = [{
+"aabb": AABB(-0.27638802, -1, -0.5257253, 1.2274458, 1.5257362, 1.5257252),
+"attribute_data": PackedByteArray("Fl2v17lo1+t0UdfrdFHX67lo1+sWXf//Fl2v11x0r9e5aNfrdFGIw7loiMMWXa/XdFGIw9FFYK8WXWCvdFGIwxZdYK+5aIjDLjqIw9FFYK90UYjD6CLX60UXr9eLLq/X6CLX64sur9cuOtfrRRev1+giiMOLLq/X6CKIwy46iMOLLq/XLjqIw4suYK/RRWCv6CKIw4suYK8uOojDFl2v17loiMNcdK/Xiy7//+gi1+suOtfr"),
+"format": 34896613399,
+"index_count": 45,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAAIQAiACMAJAAlACYAJwAoACkAKgArACwA"),
+"material": ExtResource("1_fbgih"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 45,
+"vertex_data": PackedByteArray("DeuTTzVYDchZkg4ZXCQNyFmSDhkOjA3IWZIOGQ6M481Zkg4ZXCTjzaQ5AAA1WOPNDeuTTzVY+s+P0L9cAAD6z1mSDhlcJPrP///Jpw6MW8D//8mnXCRbwA3rk081WFvA///Jpw6MCrMsyf//GqwKsy/00vI1WAqz///Jpw6MKMAv9NLyNVgowP//yadcJCjAO7TJp/PfG6csyf//Gqwbp///yacOjBunwxcOGRqsUJ4AAL9c7+ZQnndwk0/z31CewxcOGRqsZqd3cJNP899mp1mSDhkOjGanAAC/XO/mKY+kOcmn//8pj3dwk0/z3ymPpDnJp///6Y47tMmn89/pjndwk0/z3+mOO7TJp/PfZJ9Jc9Ly7+ZknyzJ//8arGSfpDnJp///yI1Jc9Ly7+bIjTu0yafz38iNDeuTTzVYuMv//8mnXCS4y4/Qv1wAALjLpDkAADVYorPDFw4ZGqyis1mSDhkOjKKzLWCkPy1gpD8tYKQ/eVoMS3laDEt5WgxLM2QRNDNkETQzZBE0z3VfFM91XxTPdV8UoqPVHaKj1R2io9UdVI4qB1SOKgdUjioHBpyREgackRIGnJESLBoWfSwaFn0sGhZ9bylFZG8pRWRvKUVkBTHMcwUxzHMFMcxzzFJcNMxSXDTMUlw0drg4HXa4OB12uDgdZKjeImSo3iJkqN4iEGz8HhBs/B4QbPweXyNLa18jS2tfI0tr")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_0csuf")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_u6idv"]
+_surfaces = [{
+"aabb": AABB(-0.95105785, 0, -0.8090167, 0.688189, 0.8506542, 0.8090167),
+"format": 34896613377,
+"index_count": 15,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAAAAIABQACAAMABAACAAUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("//83ngAAAACQw///N54AAJtUloakWQAAWSU3nv//AAAhhwAAAAAAAAAAAAA3ngAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_f0inl"]
+resource_name = "Shield_Ani_Icosphere_001"
+_surfaces = [{
+"aabb": AABB(-0.95105785, 0, -0.8090167, 0.688189, 0.8506542, 0.8090167),
+"attribute_data": PackedByteArray("6KJgr4quOZstumCviq6Iw+iiYK8tumCv0MWIwy26YK9z0WCviq6Iwy26YK/QxYjDLbpgr9DFOZtz0WCv"),
+"format": 34896613399,
+"index_count": 15,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4A"),
+"material": ExtResource("1_fbgih"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("//83ngAABOmQw///N54E6ZtUloakWQTpIYcAAAAA7uj//zeeAADu6JtUloakWe7oAAAAADeeuMubVJaGpFm4y1klN57//7jLIYcAAAAArdmbVJaGpFmt2QAAAAA3nq3Zm1SWhqRZ+s+Qw///N576z1klN57///rPPIOp2DyDqdg8g6nYgX006YF9NOmBfTTp7pMC4e6TAuHukwLhwIPf9MCD3/TAg9/0y5vty8ub7cvLm+3L")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_u6idv")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uo7g1"]
+_surfaces = [{
+"aabb": AABB(-0.95105785, -0.5257362, -0.99999994, 1.2274458, 1.5257362, 1.5257252),
+"format": 34896613377,
+"index_count": 45,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAABAAAAAQAFAAMABgAEAAAAAwAFAAcABgAIAAQABQAJAAcACAAKAAQACwAJAAUACAAMAAoACwANAAkADAAOAAoADgANAAsADgALAAoA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("0jYAAORTAAAAADVY8HMAAM8LLA3JpwAAAAA1WKLbAADDSzVYCyAAAPEUa7DJpwAAtYwsDQ8ZAABvLz+j//8AAFrGNVgAAAAApW3w5qLbAACHj2uwCyAAAKVt8ObwcwAA//8/ow8ZAABaxv//yacAADvo8ObkUwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0ux2l"]
+resource_name = "Shield_Ani_Icosphere_002"
+_surfaces = [{
+"aabb": AABB(-0.95105785, -0.5257362, -0.99999994, 1.2274458, 1.5257362, 1.5257252),
+"attribute_data": PackedByteArray("Lbqv19DFiMNz0a/XRZeIw6KLYK/oomCv0MU5mxbdOZtz0WCvRZc5m+iiEYeKrjmbFt2Iw3PRYK+56GCvRZc5m4quOZvoomCvc9FgrxbdOZu56GCv6KKv14quiMMtuq/XRZeIw+iiYK+KrojD0MWIw3PRYK8W3YjD0MU5m3PREYcW3Tmbc9Gv19DFiMMW3YjD6KKv10WXiMOKrojDiq6Iw9DFiMMtuq/Xootgr0WXOZvoomCv"),
+"format": 34896613399,
+"index_count": 45,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAAIQAiACMAJAAlACYAJwAoACkAKgArACwA"),
+"material": ExtResource("1_fbgih"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 45,
+"vertex_data": PackedByteArray("0jYAAORT3s8AADVY8HPez88LLA3Jp97PWsY1WAAA5/3//z+jDxnn/YePa7ALIOf9pW3w5vBzDcilbfDmotsNyPEUa7DJpw3IO+jw5uRTkfVaxv//yaeR9aVt8Obwc5H1AAA1WKLbGbfxFGuwyacZt28vP6P//xm3O+jw5uRTh/SlbfDm8HOH9IePa7ALIIf08RRrsMmnLLulbfDmotssu28vP6P//yy7tYwsDQ8ZweTDSzVYCyDB5NI2AADkU8HkWsY1WAAAQfOHj2uwCyBB88NLNVgLIEHzAAA1WPBzW8DxFGuwyadbwAAANVii21vApW3w5vBz481axv//yafjzaVt8Oai2+PNzwssDcmnKMAAADVY8HMowAAANVii2yjAtYwsDQ8ZOPNaxjVYAAA488NLNVgLIDjzw0s1WAsgx9kAADVY8HPH2dI2AADkU8fZ//8/ow8ZK/876PDm5FMr/4ePa7ALICv/K2Wh+ytlofsrZaH7FIiT5hSIk+YUiJPm0Z9awNGfWsDRn1rA44dKxuOHSsbjh0rGao1f2mqNX9pqjV/aX4Zg0V+GYNFfhmDRopySwqKcksKinJLCCmSB8gpkgfIKZIHyuoFZ87qBWfO6gVnzL4qf6y+Kn+svip/rhaXytIWl8rSFpfK0qnHU+Kpx1PiqcdT4SXfO/kl3zv5Jd87+/2+Y+v9vmPr/b5j6lIc915SHPdeUhz3X")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_uo7g1")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qfcd5"]
+_surfaces = [{
+"aabb": AABB(-0.95105785, -0.8506544, -0.99999994, 1.6392472, 1.8506544, 1.8090167),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAAACAAQAAwAFAAEAAgAGAAQAAwAHAAUABgAIAAQABwAJAAUABgAKAAgACwAJAAcACAAKAAwACwANAAkACgAOAAwACwAPAA0ADgAQAAwADwARAA0ADgASABAAEwARAA8AEwASABEAEAASABMA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("bEIAAIKNAAANKfEswUYAANgIzjeCjQAAJ3sAAMFGAAANKfEsRNQAAFxpzjciFQAAAACrdT25AACTvfEsBhsAALs4q3X//wAAhpSrdQAAAACFI4iz6NcAAFDwq3UGGwAAeGtkvv7/AACvv4izIhUAABpSVus9uQAA//9kvsFGAADkrVbrRNQAAOStVuvBRgAAhpT//4KNAACg5lbrgo0AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_n380a"]
+resource_name = "Shield_Ani_Icosphere_003"
+_surfaces = [{
+"aabb": AABB(-0.95105785, -0.8506544, -0.99999994, 1.6392472, 1.8506544, 1.8090167),
+"attribute_data": PackedByteArray("0MXX6y26r9dz0a/Xiq7X6y26r9fQxdfriq7X6+iir9ctuq/XFt2Iw1z0iMO56K/XoguIwwAAYK9FF2Cvogs5m+giOZtFF2Cv/3+Iw1x0YK+ii2CvXHRgr/9/OZuii2Cvogs5m0UXEYfoIjmbuWg5m/9/OZtcdGCvLjo5m9FFEYd0UTmbc9Gv1xbdiMO56K/Xoouv10WXiMPooq/XAABgr6ILOZtFF2CvRZfX66KLr9fooq/XuWg5m1x0EYf/fzmb/3+Iw6KLYK9Fl4jDFt2Iw7noYK9c9IjD/3+Iw0WXiMOii6/XFt3X63PRr9e56K/X"),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAAIQAiACMAJAAlACYAJwAoACkAKgArACwALQAuAC8AMAAxADIAMwA0ADUANgA3ADgAOQA6ADsA"),
+"material": ExtResource("1_fbgih"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("bEIAAIKNktENKfEswUaS0dgIzjeCjZLRJ3sAAMFG2N0NKfEswUbY3WxCAACCjdjdJ3sAAMFGYudcac43IhVi5w0p8SzBRmLnAACrdT25G6e7OKt1//8bpw0p8SxE1Bunuzirdf//v5uFI4iz6Ne/m3hrZL7+/7+bGlJW6z25ZqfkrVbrRNRmp3hrZL7+/2anUPCrdQYbweT//2S+wUbB5K+/iLMiFcHk//9kvsFGYufkrVbrwUZi56+/iLMiFWLnGlJW6z25orOGlP//go2is+StVutE1KKzoOZW64KN2N3krVbrwUbY3f//ZL7BRtjd5K1W60TUrb2GlP//go2tvaDmVuuCja292AjON4KNCrMAAKt1PbkKsw0p8SxE1Aqzk73xLAYb5/2GlKt1AADn/VxpzjciFef9hSOIs+jXvaYaUlbrPbm9pnhrZL7+/72mJ3sAAMFGK/+TvfEsBhsr/1xpzjciFSv/oOZW64KNE+GGlP//go0T4eStVuvBRhPhUPCrdQYbOPOvv4izIhU484aUq3UAADjzAACrdT25tqaFI4iz6Ne2prs4q3X//7amUPCrdQYbQfOGlKt1AABB85O98SwGG0HzbEIAAIKNs7nYCM43go2zuQ0p8SxE1LO5oE448aBOOPGgTjjxSkmH7UpJh+1KSYftz1G37s9Rt+7PUbfu+GNt7fhjbe34Y23tD7bYzw+22M8PttjPj9a5m4/WuZuP1rmb9Jt9DfSbfQ30m30NL65HES+uRxEvrkcRn9yzlJ/cs5Sf3LOUtLZ3ErS2dxK0tncSs9ZwObPWcDmz1nA5XFwp4lxcKeJcXCni6ndrGep3axnqd2sZ3sTxtN7E8bTexPG0anjBKGp4wShqeMEoKMJUFijCVBYowlQWtYgwAbWIMAG1iDABWI3Z61iN2etYjdnrRH6lDER+pQxEfqUM7kPo1e5D6NXuQ+jV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qfcd5")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yqoms"]
+_surfaces = [{
+"aabb": AABB(-0.6881894, -1, -0.8090167, 1.6392472, 1.8506544, 1.8090167),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAQADAAIABAABAAAAAgADAAUABgAEAAAAAwAHAAUABgAIAAQABQAHAAkABgAKAAgABwALAAkACgAMAAgACQALAA0ACgAOAAwACwAPAA0ADgAQAAwADQAPABEADgASABAAEQAPABMAEgATABAAEgARABMA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("GlKoFD25AAAAAJpBPbkAAE9Adkzc6gAArg9TivjkAABeGagUfHIAAHhrU4r//wAAeGsAAHxyAABrQg3T+OQAABpSqBS6KwAAopYwyNzqAADkragUwUYAANeE//89uQAAhpSaQQAAAADx1g3TPbkAAHncdkwWKAAAkr3+/3xyAABDx1OKAAAAACb3MMh8cgAA//9TisFGAADx1g3TuisAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dmevq"]
+resource_name = "Shield_Ani_Icosphere_004"
+_surfaces = [{
+"aabb": AABB(-0.6881894, -1, -0.8090167, 1.6392472, 1.8506544, 1.8090167),
+"attribute_data": PackedByteArray("XPTX67nor9f//6/X/3/X61x0r9eii6/Xueiv11z0iMP//6/Xuej//xbd1+tc9NfruWiIw1x0YK//f4jDLbr//4qu1+vQxdfroov///9/1+tFl9fruWiIwxZdYK9cdGCv0UVgr3RROZsWXWCvRRdgr+giOZuLLmCvoguIw0UXYK/oIojDXHSv1/9/iMOii6/XLjo5m3RROZvRRWCvRRev16ILiMPoIojD6CKIw0UXYK+LLmCviy5gry46OZvRRWCvXHSv17loiMP/f4jDFl1gr7loOZtcdGCvFt3X67nor9dc9Nfr/3/X66KLr9dFl9fr"),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAAIQAiACMAJAAlACYAJwAoACkAKgArACwALQAuAC8AMAAxADIAMwA0ADUANgA3ADgAOQA6ADsA"),
+"material": ExtResource("1_fbgih"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("GlKoFD251acAAJpBPbnVp09Adkzc6tWn5K2oFMFGBOl53HZMFigE6YaUmkEAAATpAACaQT25ZJ+uD1OK+ORkn09Adkzc6mSfeGsAAHxyrb1eGagUfHKtvRpSqBQ9ua29//9TisFGx9nx1g3TuivH2UPHU4oAAMfZeGsAAHxyE+EaUqgUuisT4V4ZqBR8chPheGsAAHxykfXkragUwUaR9RpSqBS6K5H1//9TisFG3s8m9zDIfHLez/HWDdO6K97P8dYN0z25s7mSvf7/fHKzuSb3MMh8crO5a0IN0/jkUJ7XhP//PblQnqKWMMjc6lCerg9Tivjk6Y5rQg3T+OTpjnhrU4r//+mOedx2TBYo7uhDx1OKAADu6IaUmkEAAO7o14T//z25nLSSvf7/fHKctPHWDdM9uZy0T0B2TNzqyI2uD1OK+OTIjXhrU4r//8iNeGtTiv//KY9rQg3T+OQpj6KWMMjc6imPopYwyNzq1afXhP//PbnVp/HWDdM9udWnedx2TBYordn//1OKwUat2UPHU4oAAK3ZJvcwyHxyktGSvf7/fHKS0fHWDdO6K5LRXhmoFHxynLQAAJpBPbmctBpSqBQ9uZy05K2oFMFGh/SGlJpBAACH9BpSqBS6K4f01y/Uzdcv1M3XL9TNwnxVJ8J8VSfCfFUniEfG4ohHxuKIR8biSymOxkspjsZLKY7G/49mBf+PZgX/j2YF1j2q6dY9qunWParpG3i0ORt4tDkbeLQ505pdBNOaXQTTml0EELwWKhC8FioQvBYq0uXogtLl6ILS5eiCMq2iyzKtossyraLLfYLKFn2CyhZ9gsoWEsxlMhLMZTISzGUymlcg3ZpXIN2aVyDd+c4yjPnOMoz5zjKMJ9AqMifQKjIn0CoyPnwfCz58Hws+fB8LXrHGDl6xxg5escYO7DOZzewzmc3sM5nNn3meLp95ni6feZ4u")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yqoms")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1yc0r"]
+_surfaces = [{
+"aabb": AABB(0.26286882, -0.8506542, 0, 0.688189, 0.8506542, 0.8090167),
+"format": 34896613377,
+"index_count": 15,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgAEAAAAAAAFAAMABAAFAAAA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("Y6toeVqmAACl2sdhAAAAAG48AADHYQAA/////8dhAAAAAMdh/v8AAN14/////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pk4f7"]
+resource_name = "Shield_Ani_Icosphere_005"
+_surfaces = [{
+"aabb": AABB(0.26286882, -0.8506542, 0, 0.688189, 0.8506542, 0.8090167),
+"attribute_data": PackedByteArray("0UWv1xZdr9d0UdfrLjrX64sur9fRRa/X0UWv13RRiMMWXa/X0UWv1y46iMN0UYjDiy6v1y46iMPRRa/X"),
+"format": 34896613399,
+"index_count": 15,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4A"),
+"material": ExtResource("1_fbgih"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 15,
+"vertex_data": PackedByteArray("Y6toeVqmLLul2sdhAAAsu248AADHYSy7bjwAAMdhvaYAAMdh/v+9pmOraHlapr2mY6toeVqmGbf/////x2EZt6Xax2EAABm3Y6toeVqmtqbdeP////+2pv/////HYbamAADHYf7/v5vdeP////+/m2OraHlapr+bXGNsPVxjbD1cY2w9IDsNSyA7DUsgOw1LlHKfJZRynyWUcp8lpnIlFKZyJRSmciUU70kmMO9JJjDvSSYw")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1yc0r")
+
+[sub_resource type="Animation" id="Animation_xmjkm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icosphere_004:mesh:surface_0/material:grow_amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icosphere_001:mesh:surface_0/material:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.81960785, 0.5647059, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n14a7"]
+_data = {
+&"IcosphereAction": ExtResource("1_t6swg"),
+&"Icosphere_001Action": ExtResource("2_fbgih"),
+&"Icosphere_002Action": ExtResource("3_xmjkm"),
+&"Icosphere_003Action": ExtResource("4_m7t4t"),
+&"Icosphere_004Action": ExtResource("5_ka5b5"),
+&"Icosphere_005Action": ExtResource("6_dfga3"),
+&"RESET": SubResource("Animation_xmjkm")
+}
+
+[sub_resource type="Animation" id="Animation_fx6ty"]
+length = 1.8
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icosphere_001")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.033333335, 1, 1, 1, 1, 0.06666667, 1, 1.009375, 1.009375, 1.009375, 0.1, 1, 1.0293751, 1.0293751, 1.0293751, 0.16666667, 1, 1.084375, 1.084375, 1.084375, 0.2, 1, 1.0968751, 1.0968751, 1.0968751, 0.23333333, 1, 1.09832, 1.09832, 1.09832, 0.26666668, 1, 1.09416, 1.09416, 1.09416, 0.3, 1, 1.08736, 1.08736, 1.08736, 0.33333334, 1, 1.0784, 1.0784, 1.0784, 0.36666667, 1, 1.0675199, 1.0675199, 1.0675199, 0.4, 1, 1.0559199, 1.0559199, 1.0559199, 0.43333334, 1, 1.04408, 1.04408, 1.04408, 0.46666667, 1, 1.03248, 1.03248, 1.03248, 0.5, 1, 1.0216, 1.0216, 1.0216, 0.53333336, 1, 1.01264, 1.01264, 1.01264, 0.56666666, 1, 1.00584, 1.00584, 1.00584, 0.6, 1, 1.00168, 1.00168, 1.00168, 0.625, 1, 1, 1, 1)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icosphere_002")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.033333335, 1, 1, 1, 1, 0.06666667, 1, 1.0027657, 1.0027657, 1.0027657, 0.1, 1, 1.0093489, 1.0093489, 1.0093489, 0.13333334, 1, 1.0196823, 1.0196823, 1.0196823, 0.16666667, 1, 1.0325781, 1.0325781, 1.0325781, 0.2, 1, 1.0465156, 1.0465156, 1.0465156, 0.23333333, 1, 1.05968, 1.05968, 1.05968, 0.26666668, 1, 1.0716399, 1.0716399, 1.0716399, 0.3, 1, 1.08204, 1.08204, 1.08204, 0.33333334, 1, 1.0906, 1.0906, 1.0906, 0.36666667, 1, 1.0961467, 1.0961467, 1.0961467, 0.4, 1, 1.0990133, 1.0990133, 1.0990133, 0.43333334, 1, 1.09888, 1.09888, 1.09888, 0.46666667, 1, 1.09568, 1.09568, 1.09568, 0.5, 1, 1.0896, 1.0896, 1.0896, 0.53333336, 1, 1.08064, 1.08064, 1.08064, 0.56666666, 1, 1.0702399, 1.0702399, 1.0702399, 0.6, 1, 1.0588799, 1.0588799, 1.0588799, 0.6666667, 1, 1.0352, 1.0352, 1.0352, 0.7, 1, 1.02432, 1.02432, 1.02432, 0.73333335, 1, 1.01488, 1.01488, 1.01488, 0.76666665, 1, 1.00736, 1.00736, 1.00736, 0.8, 1, 1.00224, 1.00224, 1.00224, 0.8333333, 1, 1, 1, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Icosphere_003")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.06666667, 1, 1.000281, 1.000281, 1.000281, 0.1, 1, 1.0010601, 1.0010601, 1.0010601, 0.13333334, 1, 1.0024683, 1.0024683, 1.0024683, 0.16666667, 1, 1.0045503, 1.0045503, 1.0045503, 0.2, 1, 1.0076199, 1.0076199, 1.0076199, 0.23333333, 1, 1.0114971, 1.0114971, 1.0114971, 0.26666668, 1, 1.0162269, 1.0162269, 1.0162269, 0.3, 1, 1.0218538, 1.0218538, 1.0218538, 0.33333334, 1, 1.0284225, 1.0284225, 1.0284225, 0.36666667, 1, 1.0363362, 1.0363362, 1.0363362, 0.4, 1, 1.0453258, 1.0453258, 1.0453258, 0.43333334, 1, 1.0553104, 1.0553104, 1.0553104, 0.5, 1, 1.0766857, 1.0766857, 1.0766857, 0.53333336, 1, 1.0861028, 1.0861028, 1.0861028, 0.56666666, 1, 1.0934744, 1.0934744, 1.0934744, 0.6, 1, 1.0980915, 1.0980915, 1.0980915, 0.6333333, 1, 1.09944, 1.09944, 1.09944, 0.6666667, 1, 1.0972, 1.0972, 1.0972, 0.7, 1, 1.09112, 1.09112, 1.09112, 0.73333335, 1, 1.08288, 1.08288, 1.08288, 0.76666665, 1, 1.07296, 1.07296, 1.07296, 0.8, 1, 1.0618399, 1.0618399, 1.0618399, 0.8666667, 1, 1.03816, 1.03816, 1.03816, 0.9, 1, 1.02704, 1.02704, 1.02704, 0.93333334, 1, 1.01712, 1.01712, 1.01712, 0.96666664, 1, 1.0088799, 1.0088799, 1.0088799, 1, 1, 1.0028, 1.0028, 1.0028, 1.0416666, 1, 1, 1, 1)
+tracks/3/type = "scale_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Icosphere_004")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.2, 1, 1.0010314, 1.0010314, 1.0010314, 0.23333333, 1, 1.0018331, 1.0018331, 1.0018331, 0.26666668, 1, 1.002941, 1.002941, 1.002941, 0.3, 1, 1.0043987, 1.0043987, 1.0043987, 0.33333334, 1, 1.00625, 1.00625, 1.00625, 0.36666667, 1, 1.0087136, 1.0087136, 1.0087136, 0.4, 1, 1.0117018, 1.0117018, 1.0117018, 0.43333334, 1, 1.0152587, 1.0152587, 1.0152587, 0.46666667, 1, 1.0194278, 1.0194278, 1.0194278, 0.5, 1, 1.0242529, 1.0242529, 1.0242529, 0.53333336, 1, 1.03004, 1.03004, 1.03004, 0.56666666, 1, 1.0366144, 1.0366144, 1.0366144, 0.6, 1, 1.0440196, 1.0440196, 1.0440196, 0.6333333, 1, 1.0524114, 1.0524114, 1.0524114, 0.6666667, 1, 1.0620571, 1.0620571, 1.0620571, 0.7, 1, 1.0726628, 1.0726628, 1.0726628, 0.73333335, 1, 1.0826515, 1.0826515, 1.0826515, 0.76666665, 1, 1.0911314, 1.0911314, 1.0911314, 0.8, 1, 1.0972114, 1.0972114, 1.0972114, 0.8333333, 1, 1.1, 1.1, 1.1, 0.8666667, 1, 1.0977601, 1.0977601, 1.0977601, 0.9, 1, 1.09264, 1.09264, 1.09264, 0.93333334, 1, 1.08512, 1.08512, 1.08512, 0.96666664, 1, 1.07568, 1.07568, 1.07568, 1, 1, 1.0647999, 1.0647999, 1.0647999, 1.0666667, 1, 1.0411199, 1.0411199, 1.0411199, 1.1, 1, 1.02976, 1.02976, 1.02976, 1.1333333, 1, 1.01936, 1.01936, 1.01936, 1.1666666, 1, 1.0103999, 1.0103999, 1.0103999, 1.2, 1, 1.00432, 1.00432, 1.00432, 1.2333333, 1, 1.00112, 1.00112, 1.00112, 1.25, 1, 1, 1, 1)
+tracks/4/type = "scale_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Icosphere_005")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.26666668, 1, 1.0005838, 1.0005838, 1.0005838, 0.33333334, 1, 1.0012406, 1.0012406, 1.0012406, 0.36666667, 1, 1.0017296, 1.0017296, 1.0017296, 0.4, 1, 1.0023227, 1.0023227, 1.0023227, 0.43333334, 1, 1.0030288, 1.0030288, 1.0030288, 0.46666667, 1, 1.0038563, 1.0038563, 1.0038563, 0.5, 1, 1.004814, 1.004814, 1.004814, 0.53333336, 1, 1.0059628, 1.0059628, 1.0059628, 0.56666666, 1, 1.0072678, 1.0072678, 1.0072678, 0.6, 1, 1.0087377, 1.0087377, 1.0087377, 0.6333333, 1, 1.0103812, 1.0103812, 1.0103812, 0.6666667, 1, 1.012207, 1.012207, 1.012207, 0.7, 1, 1.0142933, 1.0142933, 1.0142933, 0.73333335, 1, 1.0165879, 1.0165879, 1.0165879, 0.76666665, 1, 1.0190994, 1.0190994, 1.0190994, 0.8, 1, 1.0218366, 1.0218366, 1.0218366, 0.8333333, 1, 1.0248083, 1.0248083, 1.0248083, 0.8666667, 1, 1.0281098, 1.0281098, 1.0281098, 0.9, 1, 1.0316716, 1.0316716, 1.0316716, 0.93333334, 1, 1.0355027, 1.0355027, 1.0355027, 0.96666664, 1, 1.0396115, 1.0396115, 1.0396115, 1, 1, 1.0440067, 1.0440067, 1.0440067, 1.0333333, 1, 1.0488013, 1.0488013, 1.0488013, 1.0666667, 1, 1.0555199, 1.0555199, 1.0555199, 1.1, 1, 1.0643599, 1.0643599, 1.0643599, 1.1333333, 1, 1.07476, 1.07476, 1.07476, 1.1666666, 1, 1.0854, 1.0854, 1.0854, 1.2, 1, 1.09372, 1.09372, 1.09372, 1.2333333, 1, 1.09832, 1.09832, 1.09832, 1.2666667, 1, 1.09888, 1.09888, 1.09888, 1.3, 1, 1.09568, 1.09568, 1.09568, 1.3333334, 1, 1.0896, 1.0896, 1.0896, 1.3666667, 1, 1.08064, 1.08064, 1.08064, 1.4, 1, 1.0702399, 1.0702399, 1.0702399, 1.4333333, 1, 1.05888, 1.05888, 1.05888, 1.5, 1, 1.0352, 1.0352, 1.0352, 1.5333333, 1, 1.02432, 1.02432, 1.02432, 1.5666667, 1, 1.01488, 1.01488, 1.01488, 1.6, 1, 1.00736, 1.00736, 1.00736, 1.6333333, 1, 1.00224, 1.00224, 1.00224, 1.6666666, 1, 1, 1, 1)
+tracks/5/type = "scale_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Icosphere")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.23333333, 1, 1.0007334, 1.0007334, 1.0007334, 0.26666668, 1, 1.0011766, 1.0011766, 1.0011766, 0.3, 1, 1.0017596, 1.0017596, 1.0017596, 0.33333334, 1, 1.0025004, 1.0025004, 1.0025004, 0.36666667, 1, 1.0034859, 1.0034859, 1.0034859, 0.4, 1, 1.0046815, 1.0046815, 1.0046815, 0.43333334, 1, 1.0061044, 1.0061044, 1.0061044, 0.46666667, 1, 1.0077722, 1.0077722, 1.0077722, 0.5, 1, 1.0097026, 1.0097026, 1.0097026, 0.53333336, 1, 1.0120178, 1.0120178, 1.0120178, 0.56666666, 1, 1.0146478, 1.0146478, 1.0146478, 0.6, 1, 1.0176104, 1.0176104, 1.0176104, 0.6333333, 1, 1.0209228, 1.0209228, 1.0209228, 0.6666667, 1, 1.0246027, 1.0246027, 1.0246027, 0.7, 1, 1.0288074, 1.0288074, 1.0288074, 0.73333335, 1, 1.033432, 1.033432, 1.033432, 0.76666665, 1, 1.038494, 1.038494, 1.038494, 0.8, 1, 1.0440108, 1.0440108, 1.0440108, 0.8333333, 1, 1.05, 1.05, 1.05, 0.8666667, 1, 1.058202, 1.058202, 1.058202, 0.9, 1, 1.0680715, 1.0680715, 1.0680715, 0.93333334, 1, 1.0784463, 1.0784463, 1.0784463, 0.96666664, 1, 1.0881641, 1.0881641, 1.0881641, 1, 1, 1.0960631, 1.0960631, 1.0960631, 1.0333333, 1, 1.0992126, 1.0992126, 1.0992126, 1.0666667, 1, 1.09832, 1.09832, 1.09832, 1.1, 1, 1.09416, 1.09416, 1.09416, 1.1333333, 1, 1.08736, 1.08736, 1.08736, 1.1666666, 1, 1.0784, 1.0784, 1.0784, 1.2, 1, 1.0675199, 1.0675199, 1.0675199, 1.2333333, 1, 1.0559199, 1.0559199, 1.0559199, 1.2666667, 1, 1.04408, 1.04408, 1.04408, 1.3, 1, 1.03248, 1.03248, 1.03248, 1.3333334, 1, 1.0216, 1.0216, 1.0216, 1.3666667, 1, 1.01264, 1.01264, 1.01264, 1.4, 1, 1.00584, 1.00584, 1.00584, 1.4333333, 1, 1.00168, 1.00168, 1.00168, 1.4583334, 1, 1, 1, 1)
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Icosphere_004:mesh:surface_0/material:grow_amount")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.8),
+"transitions": PackedFloat32Array(1, 0.3186403, 1),
+"update": 0,
+"values": [0.0, 0.08, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Icosphere_001:mesh:surface_0/material:albedo_color")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.76666665, 1.7666667),
+"transitions": PackedFloat32Array(1.464087, 2.2191362, 0.48296863),
+"update": 0,
+"values": [Color(1, 0.81960785, 0.5647059, 0), Color(1, 0.81960785, 0.5647059, 1), Color(1, 0.81960785, 0.5647059, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_na7iy"]
+_data = {
+&"Shield_brek": SubResource("Animation_fx6ty")
+}
+
+[node name="Shield_Ani" type="Node3D"]
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 0, 0)
+
+[node name="Icosphere" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_0mlre")
+skeleton = NodePath("")
+
+[node name="Icosphere_001" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_f0inl")
+skeleton = NodePath("")
+
+[node name="Icosphere_002" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_0ux2l")
+skeleton = NodePath("")
+
+[node name="Icosphere_003" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_n380a")
+skeleton = NodePath("")
+
+[node name="Icosphere_004" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_dmevq")
+skeleton = NodePath("")
+
+[node name="Icosphere_005" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_pk4f7")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n14a7"),
+&"Shield_break": SubResource("AnimationLibrary_na7iy")
+}
+speed_scale = 2.2

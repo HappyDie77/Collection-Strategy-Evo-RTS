@@ -20,7 +20,7 @@ albedo_color = Color(0.4754693, 0.7585785, 0.9346093, 1)
 script = ExtResource("1_546vh")
 data = ExtResource("2_v3nbk")
 
-[node name="Passives" type="Node" parent="."]
+[node name="Passives" type="Node3D" parent="."]
 process_mode = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

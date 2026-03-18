@@ -13,6 +13,7 @@ var transform_timer := 0.0
 
 var original_health: int
 var damage_transform: int = 8
+var armor_transform: int = 5
 var current_stacks: int = 0
 
 func _ready():
@@ -74,11 +75,12 @@ func _end_transform():
 		mesh.height = 2
 		mesh.radius = 0.5
 
-	current_stacks -= 1
+	current_stacks = max(0, current_stacks - 1)
 	unit.max_health = original_health
 	unit.health = min(unit.health, unit.max_health)
 
 	print("Reverted")
 
-func get_bonus() -> int:
-	return int(current_stacks) * damage_transform
+func apply_bonus(unit):
+	unit.damage_bonus += current_stacks * damage_transform
+	unit.armor_bonus += current_stacks * armor_transform

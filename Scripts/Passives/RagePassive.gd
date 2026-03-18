@@ -29,5 +29,5 @@ func _process(delta: float):
 		var decay_amount = decay_rate * delta
 		current_stacks = max(0.0, current_stacks - decay_amount)
 
-func get_bonus() -> int:
-	return int(current_stacks) * damage_per_stack
+func apply_bonus(unit):
+	unit.damage_bonus += int(current_stacks * damage_per_stack)

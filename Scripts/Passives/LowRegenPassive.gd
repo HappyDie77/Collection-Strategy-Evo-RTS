@@ -6,15 +6,15 @@ var regen_per_tick: int
 
 func _ready():
 	if unit:
-		regen_per_tick = unit.data.max_health / 40 #Heals 2.5% each sec
+		regen_per_tick = unit.max_health / 40 #Heals 2.5% each sec
 
 	timer.timeout.connect(_on_tick)
 
 func _on_tick():
-	if unit and unit.health < unit.data.max_health:
+	if unit and unit.health < unit.max_health:
 		unit.health = min(
 			unit.health + regen_per_tick,
-			unit.data.max_health
+			unit.max_health
 		)
 
 		print("Regen tick:", unit.health)

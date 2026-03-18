@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dc6antcbq38oi"]
+[gd_scene load_steps=3 format=3 uid="uid://dc6antcbq38oi"]
 
 [ext_resource type="Script" uid="uid://db8fet8ipvws6" path="res://Scripts/Passives/ShieldPassive.gd" id="1_5mrdu"]
+[ext_resource type="PackedScene" uid="uid://cqybgwfgn16b7" path="res://Scenes/Passives_VFX/shield_ani.tscn" id="2_w3k8c"]
 
-[node name="ShieldPassive" type="Node"]
+[node name="ShieldPassive" type="Node3D"]
 script = ExtResource("1_5mrdu")
+shield_cooldown = null
+shield_amount = null
+
+[node name="Shield_Ani" parent="." instance=ExtResource("2_w3k8c")]

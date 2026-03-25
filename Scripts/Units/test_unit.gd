@@ -15,6 +15,8 @@ class_name Unit
 @onready var ranged_area: Area3D = $RangedRange
 @onready var ranged_shape: CollisionShape3D = $RangedRange/RangedShape
 
+const GRAVITY = 9.8
+
 # Stats
 var max_health: int
 
@@ -225,9 +227,18 @@ func _physics_process(delta):
 		if nav_agent and not nav_agent.is_navigation_finished():
 			var next_pos = nav_agent.get_next_path_position()
 			var direction = (next_pos - global_position).normalized()
-			velocity = direction * (base_speed + speed_bonus)
+			velocity.x = direction.x * (base_speed + speed_bonus)
+			velocity.z = direction.z * (base_speed + speed_bonus)
+			# Let nav mesh Y guide climbing, but still apply gravity when falling
+			if is_on_floor():
+				velocity.y = direction.y * (base_speed + speed_bonus)
+			else:
+				velocity.y -= GRAVITY * delta
 		else:
-			velocity = Vector3.ZERO
+			velocity.x = 0.0
+			velocity.z = 0.0
+			if not is_on_floor():
+				velocity.y -= GRAVITY * delta
 		move_and_slide()
 		return
 
@@ -242,13 +253,28 @@ func _physics_process(delta):
 		should_recalculate = true
 
 	# AI movement
+# In _physics_process, replace the AI movement block:
 	if nav_agent and not nav_agent.is_navigation_finished():
-		var next_pos = nav_agent.get_next_path_position()
-		var direction = (next_pos - global_position).normalized()
-		velocity = direction * (base_speed + speed_bonus)
+		# Don't push forward if we already have enemies in attack range
+		if enemies_in_attack_range.size() > 0 and not manual_override:
+			velocity.x = 0.0
+			velocity.z = 0.0
+		else:
+			var next_pos = nav_agent.get_next_path_position()
+			var direction = (next_pos - global_position).normalized()
+			velocity.x = direction.x * (base_speed + speed_bonus)
+			velocity.z = direction.z * (base_speed + speed_bonus)
+			if is_on_floor():
+				velocity.y = direction.y * (base_speed + speed_bonus)
+			else:
+				velocity.y -= GRAVITY * delta
 		move_and_slide()
 	else:
-		velocity = Vector3.ZERO
+		velocity.x = 0.0
+		velocity.z = 0.0
+		if not is_on_floor():
+			velocity.y -= GRAVITY * delta
+		move_and_slide()
 
 	# Handle attack / defend based on mode
 	# OPTIMIZATION: Only recalculate targets periodically
@@ -291,22 +317,41 @@ func _fast_attack_check():
 		# Attack first valid enemy without recalculating closest
 		for enemy in enemies_in_attack_range:
 			if is_instance_valid(enemy) and enemy.health > 0:
-				attack(enemy)
+				attack_multiple()
 				return
 
-func attack(target: Node):
+func attack_multiple():
+	if attack_timer > 0:
+		return
 
-	if attack_timer > 0 or not is_instance_valid(target):
-		return
-	if target == null or not target.has_method("take_damage"):
-		return
-	if target.health <= 0:
+	# ✅ Choose correct range based on class
+	var source_array = []
+	if unit_class == "Ranged":
+		source_array = detected_enemies
+	else:
+		source_array = enemies_in_attack_range
+	if source_array.is_empty():
 		return
 
 	attack_timer = attack_cooldown
-	var final_damage = get_damage()
-	target.take_damage(final_damage, self)
-	emit_signal("attacked", target)
+
+	var damage = get_damage()
+	var hit_count = 0
+	var targets = source_array.duplicate()
+	targets.sort_custom(func(a, b):
+		return global_position.distance_squared_to(a.global_position) < global_position.distance_squared_to(b.global_position)
+	)
+	for enemy in targets:
+		if not is_instance_valid(enemy):
+			continue
+		if enemy.health <= 0:
+			continue
+
+		enemy.take_damage(damage, self)
+		emit_signal("attacked", enemy)
+		hit_count += 1
+		if hit_count >= attack_count:
+			break
 
 func handle_attack_mode():
 	# Ranged units attack from ranged distance
@@ -314,7 +359,7 @@ func handle_attack_mode():
 		var target = get_closest_enemy(detected_enemies)
 		if target:
 			current_target = target
-			attack(target)
+			attack_multiple()
 		return
 
 	# Melee units: attack if in range, otherwise move towards detected enemies
@@ -322,7 +367,7 @@ func handle_attack_mode():
 		var target = get_closest_enemy(enemies_in_attack_range)
 		if target:
 			current_target = target
-			attack(target)
+			attack_multiple()
 	elif detected_enemies.size() > 0:
 		var target = get_closest_enemy(detected_enemies)
 		if target:
@@ -335,7 +380,7 @@ func handle_defend_mode():
 		var target = get_closest_enemy(detected_enemies)
 		if target:
 			current_target = target
-			attack(target)
+			attack_multiple()
 		return
 
 	# Melee units: only charge if enemy enters defend range
@@ -350,7 +395,7 @@ func handle_defend_mode():
 		var target = get_closest_enemy(enemies_in_attack_range)
 		if target:
 			current_target = target
-			attack(target)
+			attack_multiple()
 
 # OPTIMIZATION: Use distance_squared_to to avoid sqrt calculations
 func get_closest_enemy(from_array: Array) -> Node:

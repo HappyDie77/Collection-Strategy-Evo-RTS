@@ -1,12 +1,12 @@
 [gd_scene load_steps=24 format=4 uid="uid://cqybgwfgn16b7"]
 
 [ext_resource type="Material" uid="uid://3cb3adubyo4m" path="res://Scripts/Shaders/shield_ani.tres" id="1_fbgih"]
-[ext_resource type="Animation" uid="uid://cx7tseip4q611" path="res://Assets/Animations/shield_001.res" id="1_t6swg"]
-[ext_resource type="Animation" uid="uid://1ow5evdnv2l" path="res://Assets/Animations/shield_002.res" id="2_fbgih"]
-[ext_resource type="Animation" uid="uid://dbfpka7tywhvd" path="res://Assets/Animations/shield_003.res" id="3_xmjkm"]
-[ext_resource type="Animation" uid="uid://c86fo5bd0hyi5" path="res://Assets/Animations/shield_004.res" id="4_m7t4t"]
-[ext_resource type="Animation" uid="uid://b3nimmj4kilg4" path="res://Assets/Animations/shield_005.res" id="5_ka5b5"]
-[ext_resource type="Animation" uid="uid://dwcl6t1h4ojo4" path="res://Assets/Animations/shield_006.res" id="6_dfga3"]
+[ext_resource type="Animation" uid="uid://def3jm1ujldfc" path="res://Assets/Animations/shield_001.res" id="1_t6swg"]
+[ext_resource type="Animation" uid="uid://bflcj22rku8ie" path="res://Assets/Animations/shield_002.res" id="2_fbgih"]
+[ext_resource type="Animation" uid="uid://bjqjklrqsga5m" path="res://Assets/Animations/shield_003.res" id="3_xmjkm"]
+[ext_resource type="Animation" uid="uid://l1vvmxrptsv2" path="res://Assets/Animations/shield_004.res" id="4_m7t4t"]
+[ext_resource type="Animation" uid="uid://d2dhuxoox20w8" path="res://Assets/Animations/shield_005.res" id="5_ka5b5"]
+[ext_resource type="Animation" uid="uid://bpwewbd0xdtl3" path="res://Assets/Animations/shield_006.res" id="6_dfga3"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0csuf"]
 _surfaces = [{
@@ -289,8 +289,8 @@ tracks/7/path = NodePath("Icosphere_001:mesh:surface_0/material:albedo_color")
 tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.76666665, 1.7666667),
-"transitions": PackedFloat32Array(1.464087, 2.2191362, 0.48296863),
+"times": PackedFloat32Array(0, 0.8, 1.7666667),
+"transitions": PackedFloat32Array(1.464087, 0.8, 0.48296863),
 "update": 0,
 "values": [Color(1, 0.81960785, 0.5647059, 0), Color(1, 0.81960785, 0.5647059, 1), Color(1, 0.81960785, 0.5647059, 0)]
 }

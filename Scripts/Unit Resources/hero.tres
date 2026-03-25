@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_8p3di")
 max_health = 120
-attack_range = 2.2
+attack_range = 2.0
+defend_range = 4.0
 passives = Array[PackedScene]([ExtResource("1_xb5gd")])
 metadata/_custom_type_script = "uid://b4mxac3ln3hdi"

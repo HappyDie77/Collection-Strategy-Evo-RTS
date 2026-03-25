@@ -4,7 +4,8 @@
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7pnm2"]
 dof_blur_far_enabled = true
-dof_blur_far_distance = 10.5
+dof_blur_far_distance = 20.0
+dof_blur_far_transition = 3.0
 dof_blur_near_enabled = true
 dof_blur_near_distance = 6.2
 dof_blur_amount = 0.01
@@ -21,6 +22,7 @@ margin = 0.0
 [node name="Main Camera" type="Camera3D" parent="SpringArm3D"]
 attributes = SubResource("CameraAttributesPractical_7pnm2")
 fov = 70.0
+far = 1000.0
 
 [node name="RayCast3D" type="RayCast3D" parent="SpringArm3D/Main Camera"]
 target_position = Vector3(0, 0, -1000)

@@ -89,7 +89,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			var instance = selected_unit_scene.instantiate()
 			get_tree().current_scene.add_child(instance)
 			var spawn_pos = result["position"]
-			spawn_pos.y += 1.0
+			spawn_pos.y += 1
 			instance.global_position = spawn_pos
 			placement_mode = false
 			selected_unit_scene = null

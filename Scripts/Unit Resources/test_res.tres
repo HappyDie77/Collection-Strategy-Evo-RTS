@@ -13,6 +13,5 @@ attack_range = 2.0
 defend_range = 4.0
 attack_count = 2
 default_mode = "Defend"
-unit_class = "Ranged"
 passives = Array[PackedScene]([ExtResource("2_d6sp4"), ExtResource("2_a1qn4"), ExtResource("3_a1qn4"), ExtResource("4_3xsqn"), ExtResource("5_dfsd2")])
 metadata/_custom_type_script = "uid://b4mxac3ln3hdi"

@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://byt88txdkcalt"]
+[gd_scene load_steps=17 format=4 uid="uid://byt88txdkcalt"]
 
 [ext_resource type="PackedScene" uid="uid://8vb60fkcrrqc" path="res://Scenes/camera.tscn" id="2_r0du0"]
 [ext_resource type="PackedScene" uid="uid://bqsoinx080n0v" path="res://Assets/Other/Environment 1.tscn" id="3_r0du0"]
 [ext_resource type="PackedScene" uid="uid://uujvywsur5qe" path="res://Scenes/UI/hud.tscn" id="4_cm0pq"]
+[ext_resource type="Texture2D" uid="uid://d0sakod67v5u1" path="res://Assets/2D/89e8471b3f46a5a31f04381e93de727d.jpg" id="4_fos0i"]
+[ext_resource type="Texture2D" uid="uid://drepdo46v0o1f" path="res://Assets/2D/Solidnoise.png" id="5_3dxm6"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_fos0i"]
 vertices = PackedVector3Array(5.208229, 2.5257146, -6.9674463, 4.0082293, 2.2757146, -6.6674466, 3.70823, 2.2757146, -5.4674463, 4.90823, 2.2757146, -4.567446, 6.1082306, 2.2757146, -4.8674464, 7.6082306, 1.5257145, -6.0674467, 10.608231, 1.2757145, -3.367446, 10.608231, 1.2757145, -11.467446, 6.1082306, 1.7757145, -8.167446, 3.4082298, 1.7757145, -8.167446, -10.691771, 0.7757146, -10.867447, -10.691771, 1.0257145, -8.167446, -1.8792706, 1.0257145, -8.167446, 4.6082296, 1.7757145, -3.367446, 7.6082306, 1.5257145, -4.8674464, -10.691771, 1.2757145, -3.367446, 3.70823, 1.5257145, -3.367446, 2.5082293, 1.2757145, -4.2674465, -1.0917702, 1.0257145, -3.367446, 2.8082294, 1.5257145, -7.8674464, -0.56677055, 1.0257145, -7.9424467, -5.891771, 1.2757145, 5.632554, -5.291771, 1.2757145, 6.832555, -4.0917706, 1.5257145, 6.5325537, -10.691771, 1.0257145, 0.83255386, -8.891771, 1.0257145, 1.132554, -7.0917706, 1.2757145, 5.0325537, -7.391771, 0.7757146, 3.382554, -8.291771, 0.7757146, 2.4325542, 10.608231, 1.0257145, 6.5325537, -0.82510376, 1.0257145, 6.5325537, -3.7917705, 1.5257145, 8.032554, -4.9917707, 1.5257145, 8.332555, -4.9917707, 1.0257145, 10.732554, 10.608231, 1.0257145, 10.732554, -0.5917702, 1.0257145, 7.6992197, -10.691771, 1.0257145, 9.532554, -10.691771, 0.7757146, 10.732554, -9.491771, 1.0257145, 10.732554)
@@ -14,7 +16,10 @@ cell_size = 0.3
 resource_name = "Material"
 cull_mode = 2
 albedo_color = Color(0.42448834, 0.90663916, 0.32223794, 1)
-roughness = 0.5
+albedo_texture = ExtResource("4_fos0i")
+anisotropy = 0.75
+ao_texture = ExtResource("5_3dxm6")
+uv1_scale = Vector3(33.04, 33.04, 33.04)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vuyty"]
 resource_name = "Material.001"

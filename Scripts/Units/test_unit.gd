@@ -69,6 +69,7 @@ var spawn_invulnerable_time := 0.5
 var spawn_timer := 0.0
 var bonus_timer: float = 0.0
 var bonus_interval: float = 0.25
+var movement_locked: bool = false
 
 # Performance optimization flags
 var cleanup_timer: float = 0.0
@@ -224,7 +225,7 @@ func _physics_process(delta):
 
 	# Manual movement takes priority
 	if manual_override:
-		if nav_agent and not nav_agent.is_navigation_finished():
+		if nav_agent and not nav_agent.is_navigation_finished() and not movement_locked:
 			var next_pos = nav_agent.get_next_path_position()
 			var direction = (next_pos - global_position).normalized()
 			velocity.x = direction.x * (base_speed + speed_bonus)
@@ -254,7 +255,7 @@ func _physics_process(delta):
 
 	# AI movement
 # In _physics_process, replace the AI movement block:
-	if nav_agent and not nav_agent.is_navigation_finished():
+	if nav_agent and not nav_agent.is_navigation_finished() and not movement_locked:
 		# Don't push forward if we already have enemies in attack range
 		if enemies_in_attack_range.size() > 0 and not manual_override:
 			velocity.x = 0.0
@@ -353,6 +354,14 @@ func attack_multiple():
 		if hit_count >= attack_count:
 			break
 
+func stop_moving():
+	if nav_agent:
+		nav_agent.target_position = global_position
+		nav_agent.set_velocity(Vector3.ZERO)
+	velocity.x = 0.0
+	velocity.z = 0.0
+	manual_override = false
+
 func handle_attack_mode():
 	# Ranged units attack from ranged distance
 	if unit_class == "Ranged" and detected_enemies.size() > 0:
@@ -365,10 +374,13 @@ func handle_attack_mode():
 	# Melee units: attack if in range, otherwise move towards detected enemies
 	if enemies_in_attack_range.size() > 0:
 		var target = get_closest_enemy(enemies_in_attack_range)
+		movement_locked = true
+		stop_moving()
 		if target:
 			current_target = target
 			attack_multiple()
 	elif detected_enemies.size() > 0:
+		movement_locked = false
 		var target = get_closest_enemy(detected_enemies)
 		if target:
 			current_target = target
@@ -383,19 +395,21 @@ func handle_defend_mode():
 			attack_multiple()
 		return
 
+	# Attack if in attack range
+	if enemies_in_attack_range.size() > 0:
+		var target = get_closest_enemy(enemies_in_attack_range)
+		movement_locked = true
+		stop_moving()
+		if target:
+			current_target = target
+			attack_multiple()
 	# Melee units: only charge if enemy enters defend range
-	if enemies_in_defend_range.size() > 0:
+	elif enemies_in_defend_range.size() > 0:
+		movement_locked = false
 		var target = get_closest_enemy(enemies_in_defend_range)
 		if target:
 			current_target = target
 			move_to(target.global_position)
-
-	# Attack if in attack range
-	if enemies_in_attack_range.size() > 0:
-		var target = get_closest_enemy(enemies_in_attack_range)
-		if target:
-			current_target = target
-			attack_multiple()
 
 # OPTIMIZATION: Use distance_squared_to to avoid sqrt calculations
 func get_closest_enemy(from_array: Array) -> Node:

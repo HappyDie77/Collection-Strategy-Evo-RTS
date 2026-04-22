@@ -38,8 +38,8 @@ camera_attributes = SubResource("CameraAttributesPractical_xh04s")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.820132, -0.178814, -0.543516, 0.572175, 0.256305, 0.779053, -1.59024e-08, -0.949912, 0.312517, 0, 172.949, -0.0261426)
-light_color = Color(1.2305217, 0.9643857, 0.66427493, 1)
-light_energy = 0.8
+light_color = Color(1.2299995, 1.0356656, 0.7819339, 1)
+light_energy = 0.83
 light_volumetric_fog_energy = 1.4
 shadow_enabled = true
 shadow_normal_bias = 3.0

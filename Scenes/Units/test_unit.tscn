@@ -17,6 +17,7 @@ albedo_color = Color(0.4754693, 0.7585785, 0.9346093, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_4tnkl"]
 
 [node name="TestUnit" type="CharacterBody3D" groups=["FriendlyUnits"]]
+collision_layer = 3
 script = ExtResource("1_546vh")
 data = ExtResource("2_v3nbk")
 
@@ -31,7 +32,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_546vh")
 shape = SubResource("CapsuleShape3D_v3nbk")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+simplify_path = true
 avoidance_enabled = true
+avoidance_layers = 3
+avoidance_mask = 3
 
 [node name="AttackRange" type="Area3D" parent="."]
 unique_name_in_owner = true

@@ -9,3 +9,4 @@ shield_cooldown = null
 shield_amount = null
 
 [node name="Shield_Ani" parent="." instance=ExtResource("2_w3k8c")]
+unique_name_in_owner = true

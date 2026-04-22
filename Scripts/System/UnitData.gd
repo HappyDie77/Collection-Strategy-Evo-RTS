@@ -10,7 +10,7 @@ extends Resource
 @export var magical_defence: int = 15
 
 #Attack
-@export var attack_range: float = 1.8
+@export var attack_range: float = 1.8	#1.8
 @export var attack_cooldown: float = 1.0
 @export var defend_range: float = 3.5
 @export var ranged_range: float = 7.0

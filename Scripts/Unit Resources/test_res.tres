@@ -9,7 +9,7 @@
 
 [resource]
 script = ExtResource("1_nt56w")
-attack_range = 2.0
+attack_range = 1.0
 defend_range = 4.0
 attack_count = 2
 default_mode = "Defend"

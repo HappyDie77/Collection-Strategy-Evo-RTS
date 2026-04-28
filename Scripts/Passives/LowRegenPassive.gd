@@ -16,5 +16,5 @@ func _on_tick():
 			unit.health + regen_per_tick,
 			unit.max_health
 		)
-
-		print("Regen tick:", unit.health)
+#
+		#print("Regen tick:", unit.health)

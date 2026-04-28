@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 		cooldown_timer -= delta
 		if cooldown_timer <= 0:
 			shield_active = true
-			print("[", unit.name, "] Shield recharged!")
+			#print("[", unit.name, "] Shield recharged!")
 
 func _on_damaged(amount: int, attacker):
 	if not shield_active:

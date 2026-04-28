@@ -15,7 +15,7 @@ func _ready():
 func _on_attack(_target):
 	if current_stacks < max_stacks:
 		current_stacks += 1.0
-		print("[", unit.name, "] Rage stack:", current_stacks)
+		#print("[", unit.name, "] Rage stack:", current_stacks)
 
 	time_since_last_attack = 0.0
 

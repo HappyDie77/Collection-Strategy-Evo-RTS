@@ -62,7 +62,7 @@ func _start_transform():
 		mesh.radius = 1
 
 	current_stacks += 1
-	unit.max_health = 200
+	unit.max_health *= 2
 	unit.health = unit.max_health
 
 	print("Transformed")

@@ -38,6 +38,7 @@ simplify_path = true
 avoidance_enabled = true
 avoidance_layers = 3
 avoidance_mask = 3
+debug_enabled = true
 
 [node name="AttackRange" type="Area3D" parent="."]
 unique_name_in_owner = true

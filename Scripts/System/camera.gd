@@ -57,6 +57,8 @@ func _input(event: InputEvent) -> void:
 
 	# ── Toggle mode on selected unit ─────────────────────────────────────────
 	elif event.is_action_pressed("v"):
+		if selected_unit and selected_unit.team == "Team2":
+			return
 		if selected_unit and selected_unit.has_method("set_mode"):
 			var new_mode = "Defend" if selected_unit.mode == "Attack" else "Attack"
 			selected_unit.set_mode(new_mode)

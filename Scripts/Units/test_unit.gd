@@ -35,10 +35,14 @@ var base_armor: int
 var base_physical_defence: int
 var base_magical_defence: int
 var health: int
+var shield: int = 0
+var max_shield: int = 0
 
 var damage_bonus: int   = 0
 var speed_bonus: float  = 0
 var armor_bonus: int    = 0
+var magical_defence_bonus: int = 0
+var physical_defence_bonus: int = 0
 
 var attack_cooldown: float
 var attack_timer: float = 0.0
@@ -71,6 +75,7 @@ var proximity_dist_sq: float = 0.0  # (attack_range + 0.6)^2, set in _ready
 var mode: String        # "Attack" or "Defend" — changeable mid-game via set_mode()
 var unit_class: String  # "Melee"  or "Ranged" — fixed at spawn
 var enemy_team: String  # cached
+var damage_type: UnitData.DamageType
 
 # ─── Enemy Tracking ───────────────────────────────────────────────────────────
 # enemies_in_attack_range : entered AttackRange  — unit CAN deal damage now
@@ -91,7 +96,7 @@ var forced_target: Node = null
 # return_distance : how close to origin counts as "returned"
 var defend_origin: Vector3
 var leash_distance: float  = 12.0
-var return_distance: float = 2.0
+var return_distance: float = 0.5
 
 # ─── Timers ───────────────────────────────────────────────────────────────────
 var spawn_invulnerable_time := 0.5
@@ -119,7 +124,6 @@ func _ready():
 	add_to_group(team)
 	enemy_team   = "Team2" if team == "Team1" else "Team1"
 	spawn_timer  = spawn_invulnerable_time
-	defend_origin = global_position   # default guard point is spawn position
 
 	# Material
 	if mesh_instance:
@@ -135,6 +139,8 @@ func _ready():
 	if data:
 		max_health            = data.max_health
 		health                = max_health
+		shield = 0
+		max_shield = data.max_health
 		base_damage           = data.damage
 		base_speed            = data.move_speed
 		base_armor            = data.armor
@@ -147,6 +153,7 @@ func _ready():
 		mode                  = data.default_mode
 		unit_class            = data.unit_class
 		attack_count          = data.attack_count
+		damage_type           = data.damage_type
 		load_passives()
 
 	_apply_zone_radii()
@@ -176,6 +183,8 @@ func _apply_zone_radii():
 
 func _setup_navigation():
 	await get_tree().physics_frame
+	# global_position is now the actual placed position, not Vector3.ZERO
+	defend_origin = global_position
 	if nav_agent:
 		nav_agent.set_velocity(Vector3.ZERO)
 
@@ -185,8 +194,10 @@ func _setup_navigation():
 func get_damage() -> int:           return base_damage + damage_bonus
 func get_speed() -> float:          return base_speed  + speed_bonus
 func get_armor() -> int:            return base_armor  + armor_bonus
-func get_physical_defence() -> int: return base_physical_defence
-func get_magical_defence() -> int:  return base_magical_defence
+func get_physical_defence() -> int: return base_physical_defence + physical_defence_bonus
+func get_magical_defence() -> int:  return base_magical_defence + magical_defence_bonus
+func get_shield() -> int:
+	return shield
 
 # ─────────────────────────────────────────────────────────────────────────────
 #  MODE SWITCHING  (safe to call mid-game at any time)
@@ -512,7 +523,7 @@ func _try_attack():
 	for enemy in pool:
 		if not is_instance_valid(enemy) or enemy.health <= 0:
 			continue
-		enemy.take_damage(damage, self)
+		enemy.take_damage(damage, data.damage_type, self)
 		emit_signal("attacked", enemy)
 		hit_count += 1
 		if hit_count >= attack_count:
@@ -615,6 +626,8 @@ func update_bonuses():
 	damage_bonus = 0
 	speed_bonus  = 0
 	armor_bonus  = 0
+	magical_defence_bonus = 0
+	physical_defence_bonus = 0
 	for passive in passive_container.get_children():
 		if passive.has_method("apply_bonus"):
 			passive.apply_bonus(self)
@@ -643,23 +656,52 @@ func move_to(target_pos: Vector3):
 		current_target = null
 		_transition(CombatState.MANUAL)
 
+func add_shield(amount: int):
+	if max_shield <= 0:
+		max_shield = max_health * 2  # safety fallback
+
+	shield = clamp(shield + amount, 0, max_shield)
+
 ## Immediately cancel movement and let AI re-evaluate from IDLE.
 func stop_moving():
 	_halt_nav()
 	velocity = Vector3.ZERO
 	_transition(CombatState.IDLE)
 
-func take_damage(amount: int, attacker: Node = null, is_reflect: bool = false):
+func take_damage(amount: int, damage_type: UnitData.DamageType, attacker: Node = null):
 	if spawn_timer > 0:
 		return
 	if health <= 0:
 		return
-	var armor              = get_armor()
-	var damage_multiplier  = 100.0 / (100.0 + float(armor))
-	var reduced            = max(int(amount * damage_multiplier), 1)
-	health -= reduced
-	if not is_reflect:
-		emit_signal("damaged", reduced, attacker)
+
+	var final_damage := amount
+
+	match damage_type:
+		UnitData.DamageType.PHYSICAL:
+			var armor = get_armor()
+			var phys_def = get_physical_defence()
+			var multiplier = 100.0 / (100.0 + float(armor))
+			final_damage = int(amount * multiplier)
+			# flat reduction (small anti-chip layer)
+			final_damage = max(final_damage - phys_def, 1)
+		UnitData.DamageType.MAGICAL:
+			var magic_res = get_magical_defence()
+			final_damage = max(amount - magic_res, 1)
+		UnitData.DamageType.TRUE:
+			final_damage = amount  # ignores everything
+
+	# ── SHIELD LAYER ─────────────────────────────────────────────
+	if shield > 0:
+		var absorbed = min(shield, final_damage)
+		shield -= absorbed
+		final_damage -= absorbed
+
+	# ── HEALTH LAYER ─────────────────────────────────────────────
+	if final_damage > 0:
+		health -= final_damage
+
+	if attacker:
+		emit_signal("damaged", final_damage, attacker)
 	if health <= 0:
 		die()
 

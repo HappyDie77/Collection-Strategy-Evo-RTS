@@ -27,7 +27,7 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqivn"]
-bg_color = Color(0.5431173, 0.016045108, 9.62615e-08, 1)
+bg_color = Color(0.24709386, 0.593209, 0.8513742, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -195,18 +195,20 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 8.0
-offset_top = -185.0
-offset_right = 129.0
-offset_bottom = -9.0
+offset_top = -183.0
+offset_right = 174.0
+offset_bottom = -7.0
 grow_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="Health" type="Label" parent="CanvasLayer/Stats/Main Stats"]
+[node name="Health" type="RichTextLabel" parent="CanvasLayer/Stats/Main Stats"]
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 15
-text = "Health: 200"
-horizontal_alignment = 1
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "Health: 200/400(+15393)"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [node name="Attack" type="Label" parent="CanvasLayer/Stats/Main Stats"]
 layout_mode = 2

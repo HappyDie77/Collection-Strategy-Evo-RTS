@@ -2,7 +2,7 @@ extends Control
 
 @onready var intro:             Label       = $CanvasLayer/Stats/Intro
 @onready var info:              Label       = $CanvasLayer/Stats/Info
-@onready var health:            Label       = $"CanvasLayer/Stats/Main Stats/Health"
+@onready var health: RichTextLabel = $"CanvasLayer/Stats/Main Stats/Health"
 @onready var attack:            Label       = $"CanvasLayer/Stats/Main Stats/Attack"
 @onready var armor:             Label       = $"CanvasLayer/Stats/Main Stats/Armor"
 @onready var physical_defence:  Label       = $"CanvasLayer/Stats/Main Stats/PhysicalDefence"
@@ -23,6 +23,7 @@ var update_interval: float = 0.1   # 10 times per second
 func _ready():
 	clear_stats()
 	stats.visible = false
+	health.bbcode_enabled = true
 
 func _process(delta: float) -> void:
 	if current_unit and is_instance_valid(current_unit):
@@ -67,7 +68,9 @@ func update_stats() -> void:
 	# ── Main Stats ────────────────────────────────────────────────────────────
 	var hp     = current_unit.health
 	var max_hp = current_unit.max_health
-	health.text           = "Health: %d/%d"          % [hp, max_hp]
+	var sh = current_unit.shield if "shield" in current_unit else 0
+
+	health.text = "Health: %d/%d [color=cyan](+%d)[/color]" % [hp, max_hp, sh]
 	attack.text           = "Attack: %d"              % current_unit.get_damage()
 	armor.text            = "Armor: %d"               % current_unit.get_armor()
 	physical_defence.text = "Physical Defence: %d"    % current_unit.get_physical_defence()
@@ -92,6 +95,22 @@ func update_stats() -> void:
 		health_bar.value = 0
 		health.add_theme_color_override("font_color", Color.DIM_GRAY)
 
+	# ── SHIELD BAR ───────────────────────────────────────────────
+	var msh = current_unit.max_shield if "max_shield" in current_unit else 0
+
+	if msh > 0:
+		shield_bar.visible = true
+
+		# Ensure correct ProgressBar range
+		shield_bar.min_value = 0
+		shield_bar.max_value = msh
+
+		# Direct value (NO percent math)
+		shield_bar.value = sh
+	else:
+		shield_bar.visible = false
+		shield_bar.value = 0
+
 func clear_stats() -> void:
 	intro.text            = "No Unit Selected"
 	info.text             = ""
@@ -105,6 +124,7 @@ func clear_stats() -> void:
 	speed.text            = "Speed: --"
 	mode_label.text       = "Mode: --"
 	health_bar.value      = 0
-	shield_bar.value      = 0
+	shield_bar.value = 0
+	shield_bar.visible = false
 	health.add_theme_color_override("font_color", Color.WHITE)
 	mode_label.add_theme_color_override("font_color", Color.WHITE)

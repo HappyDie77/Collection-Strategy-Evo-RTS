@@ -33,12 +33,13 @@ data = PackedVector3Array(-3.4162, 0.1416, -3.227, 3.0273, 0.1416, -5.3651, -1.1
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, -4.511658, 0)
 
 [node name="Camera" parent="." instance=ExtResource("2_r0du0")]
+transform = Transform3D(-4.371139e-08, 0.1287956, -0.99167114, 0, 0.99167114, 0.1287956, 1, 5.6298344e-09, -4.3347324e-08, -41.533302, 0, 34.329304)
 stats_panel = NodePath("../Hud")
 
 [node name="Hud" parent="." instance=ExtResource("4_cm0pq")]
 
 [node name="NavigationRegion3D2" type="NavigationRegion3D" parent="."]
-transform = Transform3D(2.5, 0, 0, 0, 2, 0, 0, 0, 2.5, -37.353027, -10.024378, 0)
+transform = Transform3D(-1.09278474e-07, 0, -2.5, 0, 2, 0, 2.5, 0, -1.09278474e-07, -34.77677, -10.024378, -66.215775)
 navigation_mesh = SubResource("NavigationMesh_fos0i")
 navigation_layers = 3
 
@@ -91,13 +92,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.15906, 0.9266856, 17.84114
 [node name="Doors" type="Node" parent="NavigationRegion3D2"]
 
 [node name="Block001" type="MeshInstance3D" parent="NavigationRegion3D2/Doors"]
-transform = Transform3D(-8.2338595e-08, 0, 17.187162, 0, 9.001656, 0, -1.8836875, 0, -7.5127474e-07, 59.99383, 3.3397036, -43.88388)
+transform = Transform3D(-8.2338595e-08, 0, 17.187162, 0, 9.001656, 0, -1.8836875, 0, -7.5127474e-07, 73.42885, 3.3397036, -17.52238)
 mesh = SubResource("BoxMesh_fos0i")
 
 [node name="Block002" type="MeshInstance3D" parent="NavigationRegion3D2/Doors"]
-transform = Transform3D(1.8836875, 0, 0, 0, 9.001656, 0, 0, 0, 17.187162, 12.658285, 3.337895, -108.57113)
+transform = Transform3D(1.8836875, 0, 0, 0, 9.001656, 0, 0, 0, 17.187162, 7.331258, 3.337895, -38.972824)
 mesh = SubResource("BoxMesh_fos0i")
 
 [node name="Block003" type="MeshInstance3D" parent="NavigationRegion3D2/Doors"]
-transform = Transform3D(-8.2338595e-08, 0, 17.187162, 0, 9.001656, 0, -1.8836875, 0, -7.5127474e-07, -10.13817, 3.3397036, -41.603924)
+transform = Transform3D(1.8836875, 0, 0, 0, 9.001656, 0, 0, 0, 17.187162, 10.469049, 3.3397036, 30.425426)
 mesh = SubResource("BoxMesh_fos0i")

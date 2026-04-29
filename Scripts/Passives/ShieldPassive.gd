@@ -4,7 +4,7 @@ extends Passive
 @onready var animation_player: AnimationPlayer = $Shield_Ani/AnimationPlayer
 
 @export var shield_cooldown: float = 5.0
-@export var shield_amount: int = 50
+@export var shield_amount: int = 30
 
 var shield_active: bool = true
 var cooldown_timer: float = 0.0
@@ -31,6 +31,7 @@ func _on_damaged(amount: int, attacker):
 
 	# Block up to shield_amount of the REAL damage
 	var blocked = min(shield_amount, amount)
+	unit.add_shield(10)
 	animation_player.play("Shield_break/Shield_brek")
 
 	unit.health += blocked
